@@ -1,4 +1,5 @@
-﻿using System;
+﻿using FJWU_StudentSurvey.UserControls;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -13,15 +14,25 @@ namespace FJWU_StudentSurvey
         protected void Page_Load(object sender, EventArgs e)
         {
             SurveyName.Text = ""; 
-            if (!string.IsNullOrWhiteSpace(StudentSurveys.SelectedValue))
+            //if (!string.IsNullOrWhiteSpace(StudentSurveys.SelectedValue))
             {
-                QurestionsPanel.Controls.Add(new TextBox());   
+                QuestionsPanel.Controls.Add(new TextBox());
+                var question = LoadControl("~/UserControls/QuestionControl.ascx") as QuestionControl;
+                //var question = LoadControl(typeof(QuestionControl),new string[] {"id1","question 1" }) as QuestionControl;
+                question.UpdateQuestion("question from db","idfromdb");
+                //var question = new QuestionControl().SetId("id from db");
+                //question.Load += Question_Load;
+                QuestionsPanel.Controls.Add(question);
+            }
+            if (IsPostBack)
+            {
+                var allControls = QuestionsPanel.Controls;
             }
         }
-
+        
         protected void CoursesList_SelectedIndexChanged(object sender, EventArgs e)
         {
-            QurestionsPanel.Controls.Add(new TextBox());
+            QuestionsPanel.Controls.Add(new TextBox());
             SurveyName.Text = db.Surveys.Where(x => x.CourseId == int.Parse(CoursesList.SelectedValue) && x.TeacherId == int.Parse(TeachersList.SelectedValue)).FirstOrDefault()?.DisplayName;
         }
 

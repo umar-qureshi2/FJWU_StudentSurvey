@@ -1,14 +1,15 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="StudentHome.aspx.cs" Inherits="FJWU_StudentSurvey.StudentHome" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage.Master" AutoEventWireup="true" CodeBehind="StudentHome.aspx.cs" Inherits="FJWU_StudentSurvey.StudentHome" %>
 
 <%@ Register Src="~/UserControls/QuestionControl.ascx" TagPrefix="uc1" TagName="QuestionControl" %>
 
 
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
     <div class="row">
-        <asp:DropDownList AutoPostBack="True" OnSelectedIndexChanged="CoursesList_SelectedIndexChanged" ID="CoursesList" runat="server" DataSourceID="CoursesDataSource" DataTextField="CourseName" DataValueField="CourseID"></asp:DropDownList>
+        <asp:DropDownList CssClass="btn dropdown-toggle selectpicker btn-default size14" AutoPostBack="True" OnSelectedIndexChanged="CoursesList_SelectedIndexChanged" ID="CoursesList" runat="server" DataSourceID="CoursesDataSource" DataTextField="CourseName" DataValueField="CourseID"></asp:DropDownList>
+        
         <asp:SqlDataSource runat="server" ID="CoursesDataSource" ConnectionString='<%$ ConnectionStrings:FJWU_StudentSurveyConnectionString %>' SelectCommand="SELECT [CourseID],[CourseName] + ' - ' +[CourseSession] AS CourseName FROM [Courses]"></asp:SqlDataSource>
 
-        <asp:DropDownList AutoPostBack="True" OnSelectedIndexChanged="TeachersList_SelectedIndexChanged" ID="TeachersList" runat="server" DataSourceID="TeachersSource" DataTextField="TeacherName" DataValueField="TeacherId"></asp:DropDownList>
+        <asp:DropDownList  CssClass="btn dropdown-toggle selectpicker btn-default size14" AutoPostBack="True" OnSelectedIndexChanged="TeachersList_SelectedIndexChanged" ID="TeachersList" runat="server" DataSourceID="TeachersSource" DataTextField="TeacherName" DataValueField="TeacherId"></asp:DropDownList>
         <asp:SqlDataSource runat="server" ID="TeachersSource" ConnectionString='<%$ ConnectionStrings:FJWU_StudentSurveyConnectionString %>' SelectCommand="SELECT * FROM [Teachers]"></asp:SqlDataSource>
     </div>
     <div class="row">
@@ -22,7 +23,7 @@
             </SelectParameters>
         </asp:SqlDataSource>
     </div>
-    <asp:Panel ID="QurestionsPanel" runat="server">
+    <asp:Panel ID="QuestionsPanel" runat="server">
         <uc1:QuestionControl runat="server" ID="QuestionControl" />
     </asp:Panel>
     <%--<div class="row">

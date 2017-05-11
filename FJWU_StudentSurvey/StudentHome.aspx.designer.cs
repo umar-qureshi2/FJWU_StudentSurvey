@@ -76,13 +76,13 @@ namespace FJWU_StudentSurvey {
         protected global::System.Web.UI.WebControls.SqlDataSource ServeySource;
         
         /// <summary>
-        /// QurestionsPanel control.
+        /// QuestionsPanel control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel QurestionsPanel;
+        protected global::System.Web.UI.WebControls.Panel QuestionsPanel;
         
         /// <summary>
         /// QuestionControl control.

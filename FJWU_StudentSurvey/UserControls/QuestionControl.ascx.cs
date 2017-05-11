@@ -11,7 +11,14 @@ namespace FJWU_StudentSurvey.UserControls
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            QuestionText.Text = "default text";
+            //QuestionText.Text = "default text";
+        }
+
+        public QuestionControl UpdateQuestion(string text,string id = null)
+        {
+            QuestionText.Text = text;
+            ID = id ?? ID;
+            return this;
         }
     }
 }

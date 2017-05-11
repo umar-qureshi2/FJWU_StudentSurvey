@@ -22,21 +22,12 @@ namespace FJWU_StudentSurvey.UserControls {
         protected global::System.Web.UI.WebControls.Literal QuestionText;
         
         /// <summary>
-        /// QuestionAnswer control.
+        /// AnswerOptions control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RadioButtonList QuestionAnswer;
-        
-        /// <summary>
-        /// AnswersSource control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.SqlDataSource AnswersSource;
+        protected global::System.Web.UI.WebControls.RadioButtonList AnswerOptions;
     }
 }
