@@ -1,0 +1,348 @@
+﻿USE [master]
+GO
+/****** Object:  Database [FJWU_StudentSurvey]    Script Date: 5/11/2017 7:53:00 AM ******/
+CREATE DATABASE [FJWU_StudentSurvey]
+GO
+ALTER DATABASE [FJWU_StudentSurvey] SET ANSI_NULL_DEFAULT OFF 
+GO
+ALTER DATABASE [FJWU_StudentSurvey] SET ANSI_NULLS OFF 
+GO
+ALTER DATABASE [FJWU_StudentSurvey] SET ANSI_PADDING OFF 
+GO
+ALTER DATABASE [FJWU_StudentSurvey] SET ANSI_WARNINGS OFF 
+GO
+ALTER DATABASE [FJWU_StudentSurvey] SET ARITHABORT OFF 
+GO
+ALTER DATABASE [FJWU_StudentSurvey] SET AUTO_CLOSE OFF 
+GO
+ALTER DATABASE [FJWU_StudentSurvey] SET AUTO_CREATE_STATISTICS ON 
+GO
+ALTER DATABASE [FJWU_StudentSurvey] SET AUTO_SHRINK OFF 
+GO
+ALTER DATABASE [FJWU_StudentSurvey] SET AUTO_UPDATE_STATISTICS ON 
+GO
+ALTER DATABASE [FJWU_StudentSurvey] SET CURSOR_CLOSE_ON_COMMIT OFF 
+GO
+ALTER DATABASE [FJWU_StudentSurvey] SET CURSOR_DEFAULT  GLOBAL 
+GO
+ALTER DATABASE [FJWU_StudentSurvey] SET CONCAT_NULL_YIELDS_NULL OFF 
+GO
+ALTER DATABASE [FJWU_StudentSurvey] SET NUMERIC_ROUNDABORT OFF 
+GO
+ALTER DATABASE [FJWU_StudentSurvey] SET QUOTED_IDENTIFIER OFF 
+GO
+ALTER DATABASE [FJWU_StudentSurvey] SET RECURSIVE_TRIGGERS OFF 
+GO
+ALTER DATABASE [FJWU_StudentSurvey] SET  DISABLE_BROKER 
+GO
+ALTER DATABASE [FJWU_StudentSurvey] SET AUTO_UPDATE_STATISTICS_ASYNC OFF 
+GO
+ALTER DATABASE [FJWU_StudentSurvey] SET DATE_CORRELATION_OPTIMIZATION OFF 
+GO
+ALTER DATABASE [FJWU_StudentSurvey] SET TRUSTWORTHY OFF 
+GO
+ALTER DATABASE [FJWU_StudentSurvey] SET ALLOW_SNAPSHOT_ISOLATION OFF 
+GO
+ALTER DATABASE [FJWU_StudentSurvey] SET PARAMETERIZATION SIMPLE 
+GO
+ALTER DATABASE [FJWU_StudentSurvey] SET READ_COMMITTED_SNAPSHOT OFF 
+GO
+ALTER DATABASE [FJWU_StudentSurvey] SET HONOR_BROKER_PRIORITY OFF 
+GO
+ALTER DATABASE [FJWU_StudentSurvey] SET RECOVERY SIMPLE 
+GO
+ALTER DATABASE [FJWU_StudentSurvey] SET  MULTI_USER 
+GO
+ALTER DATABASE [FJWU_StudentSurvey] SET PAGE_VERIFY CHECKSUM  
+GO
+ALTER DATABASE [FJWU_StudentSurvey] SET DB_CHAINING OFF 
+GO
+ALTER DATABASE [FJWU_StudentSurvey] SET FILESTREAM( NON_TRANSACTED_ACCESS = OFF ) 
+GO
+ALTER DATABASE [FJWU_StudentSurvey] SET TARGET_RECOVERY_TIME = 0 SECONDS 
+GO
+USE [FJWU_StudentSurvey]
+GO
+/****** Object:  Table [dbo].[AnswerOptions]    Script Date: 5/11/2017 7:53:00 AM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+SET ANSI_PADDING ON
+GO
+CREATE TABLE [dbo].[AnswerOptions](
+	[Option2] [varchar](50) NULL,
+	[Option3] [varchar](50) NULL,
+	[Option4] [varchar](50) NULL,
+	[Option5] [varchar](50) NULL,
+	[Option1] [varchar](50) NULL
+) ON [PRIMARY]
+
+GO
+SET ANSI_PADDING OFF
+GO
+/****** Object:  Table [dbo].[ApplicationUsers]    Script Date: 5/11/2017 7:53:00 AM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+SET ANSI_PADDING ON
+GO
+CREATE TABLE [dbo].[ApplicationUsers](
+	[UserId] [int] IDENTITY(1000,1) NOT NULL,
+	[UserName] [varchar](50) NOT NULL,
+	[Password] [varchar](50) NOT NULL,
+	[UserMapping] [int] NULL,
+	[UserPermission] [int] NOT NULL,
+ CONSTRAINT [PK_ApplicationUsers] PRIMARY KEY CLUSTERED 
+(
+	[UserId] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+GO
+SET ANSI_PADDING OFF
+GO
+/****** Object:  Table [dbo].[Courses]    Script Date: 5/11/2017 7:53:00 AM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+SET ANSI_PADDING ON
+GO
+CREATE TABLE [dbo].[Courses](
+	[CourseID] [int] IDENTITY(1,1) NOT NULL,
+	[CourseName] [varchar](50) NOT NULL,
+	[CourseSession] [varchar](50) NULL,
+ CONSTRAINT [PK_Courses] PRIMARY KEY CLUSTERED 
+(
+	[CourseID] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+GO
+SET ANSI_PADDING OFF
+GO
+/****** Object:  Table [dbo].[Questions]    Script Date: 5/11/2017 7:53:00 AM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+SET ANSI_PADDING ON
+GO
+CREATE TABLE [dbo].[Questions](
+	[QuestionId] [int] IDENTITY(1,1) NOT NULL,
+	[QuestionText] [varchar](50) NULL,
+	[QuestionType] [int] NULL,
+ CONSTRAINT [PK_Questions] PRIMARY KEY CLUSTERED 
+(
+	[QuestionId] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+GO
+SET ANSI_PADDING OFF
+GO
+/****** Object:  Table [dbo].[Students]    Script Date: 5/11/2017 7:53:00 AM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+SET ANSI_PADDING ON
+GO
+CREATE TABLE [dbo].[Students](
+	[StudentId] [int] IDENTITY(1,1) NOT NULL,
+	[StudentName] [varchar](50) NOT NULL,
+ CONSTRAINT [PK_Table_1] PRIMARY KEY CLUSTERED 
+(
+	[StudentId] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+GO
+SET ANSI_PADDING OFF
+GO
+/****** Object:  Table [dbo].[Survey]    Script Date: 5/11/2017 7:53:00 AM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+SET ANSI_PADDING ON
+GO
+CREATE TABLE [dbo].[Survey](
+	[SurveyId] [int] IDENTITY(1,1) NOT NULL,
+	[TeacherId] [int] NOT NULL,
+	[CourseId] [int] NOT NULL,
+	[StartTime] [datetime] NULL,
+	[EndTime] [datetime] NULL,
+	[DisplayName] [varchar](50) NULL,
+ CONSTRAINT [PK_Survey] PRIMARY KEY CLUSTERED 
+(
+	[SurveyId] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+GO
+SET ANSI_PADDING OFF
+GO
+/****** Object:  Table [dbo].[SurveyAnswers]    Script Date: 5/11/2017 7:53:00 AM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+SET ANSI_PADDING ON
+GO
+CREATE TABLE [dbo].[SurveyAnswers](
+	[SurveyAnswer] [int] IDENTITY(1,1) NOT NULL,
+	[Answer] [varchar](50) NULL,
+	[Student] [int] NOT NULL,
+	[SurveyQuestion] [int] NOT NULL,
+ CONSTRAINT [PK_SurveyAnswers] PRIMARY KEY CLUSTERED 
+(
+	[SurveyAnswer] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+GO
+SET ANSI_PADDING OFF
+GO
+/****** Object:  Table [dbo].[SurveyQuestions]    Script Date: 5/11/2017 7:53:00 AM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[SurveyQuestions](
+	[SurveyQuestion] [int] IDENTITY(1,1) NOT NULL,
+	[Question] [int] NOT NULL,
+	[Survey] [int] NOT NULL,
+ CONSTRAINT [PK_SurveyQuestions] PRIMARY KEY CLUSTERED 
+(
+	[SurveyQuestion] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+GO
+/****** Object:  Table [dbo].[Teachers]    Script Date: 5/11/2017 7:53:00 AM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+SET ANSI_PADDING ON
+GO
+CREATE TABLE [dbo].[Teachers](
+	[TeacherId] [int] IDENTITY(1,1) NOT NULL,
+	[TeacherName] [varchar](50) NOT NULL,
+ CONSTRAINT [PK_Teachers] PRIMARY KEY CLUSTERED 
+(
+	[TeacherId] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+GO
+SET ANSI_PADDING OFF
+GO
+INSERT [dbo].[AnswerOptions] ([Option2], [Option3], [Option4], [Option5], [Option1]) VALUES (N'B', N'C', N'D', N'E', N'A')
+GO
+SET IDENTITY_INSERT [dbo].[ApplicationUsers] ON 
+
+GO
+INSERT [dbo].[ApplicationUsers] ([UserId], [UserName], [Password], [UserMapping], [UserPermission]) VALUES (1000, N'asma', N'1234', NULL, 0)
+GO
+SET IDENTITY_INSERT [dbo].[ApplicationUsers] OFF
+GO
+SET IDENTITY_INSERT [dbo].[Courses] ON 
+
+GO
+INSERT [dbo].[Courses] ([CourseID], [CourseName], [CourseSession]) VALUES (1, N'TestCourse', N'Summer 2017')
+GO
+INSERT [dbo].[Courses] ([CourseID], [CourseName], [CourseSession]) VALUES (2, N'TestCourse2', N'Fall 2017')
+GO
+SET IDENTITY_INSERT [dbo].[Courses] OFF
+GO
+SET IDENTITY_INSERT [dbo].[Questions] ON 
+
+GO
+INSERT [dbo].[Questions] ([QuestionId], [QuestionText], [QuestionType]) VALUES (1, N'Demo First Question', 0)
+GO
+INSERT [dbo].[Questions] ([QuestionId], [QuestionText], [QuestionType]) VALUES (2, N'Demo Second Question', 0)
+GO
+INSERT [dbo].[Questions] ([QuestionId], [QuestionText], [QuestionType]) VALUES (3, N'Demo Third Question', 0)
+GO
+INSERT [dbo].[Questions] ([QuestionId], [QuestionText], [QuestionType]) VALUES (4, N'Demo Teacher Question', 1)
+GO
+SET IDENTITY_INSERT [dbo].[Questions] OFF
+GO
+SET IDENTITY_INSERT [dbo].[Students] ON 
+
+GO
+INSERT [dbo].[Students] ([StudentId], [StudentName]) VALUES (1, N'TestStudent')
+GO
+SET IDENTITY_INSERT [dbo].[Students] OFF
+GO
+SET IDENTITY_INSERT [dbo].[Survey] ON 
+
+GO
+INSERT [dbo].[Survey] ([SurveyId], [TeacherId], [CourseId], [StartTime], [EndTime], [DisplayName]) VALUES (1, 1, 1, CAST(0x0000A6EE00000000 AS DateTime), CAST(0x0000A85B00000000 AS DateTime), N'First Survey')
+GO
+INSERT [dbo].[Survey] ([SurveyId], [TeacherId], [CourseId], [StartTime], [EndTime], [DisplayName]) VALUES (2, 2, 1, CAST(0x0000A6EE00000000 AS DateTime), CAST(0x0000A85B00000000 AS DateTime), N'Second Survey')
+GO
+INSERT [dbo].[Survey] ([SurveyId], [TeacherId], [CourseId], [StartTime], [EndTime], [DisplayName]) VALUES (3, 1, 2, CAST(0x0000A6EE00000000 AS DateTime), CAST(0x0000A85B00000000 AS DateTime), N'Third Survey')
+GO
+SET IDENTITY_INSERT [dbo].[Survey] OFF
+GO
+SET IDENTITY_INSERT [dbo].[SurveyQuestions] ON 
+
+GO
+INSERT [dbo].[SurveyQuestions] ([SurveyQuestion], [Question], [Survey]) VALUES (1, 1, 1)
+GO
+INSERT [dbo].[SurveyQuestions] ([SurveyQuestion], [Question], [Survey]) VALUES (2, 1, 2)
+GO
+INSERT [dbo].[SurveyQuestions] ([SurveyQuestion], [Question], [Survey]) VALUES (3, 1, 3)
+GO
+INSERT [dbo].[SurveyQuestions] ([SurveyQuestion], [Question], [Survey]) VALUES (4, 2, 1)
+GO
+SET IDENTITY_INSERT [dbo].[SurveyQuestions] OFF
+GO
+SET IDENTITY_INSERT [dbo].[Teachers] ON 
+
+GO
+INSERT [dbo].[Teachers] ([TeacherId], [TeacherName]) VALUES (1, N'TestTeacher')
+GO
+INSERT [dbo].[Teachers] ([TeacherId], [TeacherName]) VALUES (2, N'TestTeacher2')
+GO
+SET IDENTITY_INSERT [dbo].[Teachers] OFF
+GO
+ALTER TABLE [dbo].[Survey]  WITH CHECK ADD  CONSTRAINT [FK_Survey_Courses] FOREIGN KEY([CourseId])
+REFERENCES [dbo].[Courses] ([CourseID])
+GO
+ALTER TABLE [dbo].[Survey] CHECK CONSTRAINT [FK_Survey_Courses]
+GO
+ALTER TABLE [dbo].[Survey]  WITH CHECK ADD  CONSTRAINT [FK_Survey_Teachers] FOREIGN KEY([TeacherId])
+REFERENCES [dbo].[Teachers] ([TeacherId])
+GO
+ALTER TABLE [dbo].[Survey] CHECK CONSTRAINT [FK_Survey_Teachers]
+GO
+ALTER TABLE [dbo].[SurveyAnswers]  WITH CHECK ADD  CONSTRAINT [FK_SurveyAnswers_Students] FOREIGN KEY([Student])
+REFERENCES [dbo].[Students] ([StudentId])
+GO
+ALTER TABLE [dbo].[SurveyAnswers] CHECK CONSTRAINT [FK_SurveyAnswers_Students]
+GO
+ALTER TABLE [dbo].[SurveyAnswers]  WITH CHECK ADD  CONSTRAINT [FK_SurveyAnswers_SurveyQuestions] FOREIGN KEY([SurveyQuestion])
+REFERENCES [dbo].[SurveyQuestions] ([SurveyQuestion])
+GO
+ALTER TABLE [dbo].[SurveyAnswers] CHECK CONSTRAINT [FK_SurveyAnswers_SurveyQuestions]
+GO
+ALTER TABLE [dbo].[SurveyQuestions]  WITH CHECK ADD  CONSTRAINT [FK_SurveyQuestions_Questions] FOREIGN KEY([Question])
+REFERENCES [dbo].[Questions] ([QuestionId])
+GO
+ALTER TABLE [dbo].[SurveyQuestions] CHECK CONSTRAINT [FK_SurveyQuestions_Questions]
+GO
+ALTER TABLE [dbo].[SurveyQuestions]  WITH CHECK ADD  CONSTRAINT [FK_SurveyQuestions_Survey] FOREIGN KEY([Survey])
+REFERENCES [dbo].[Survey] ([SurveyId])
+GO
+ALTER TABLE [dbo].[SurveyQuestions] CHECK CONSTRAINT [FK_SurveyQuestions_Survey]
+GO
+USE [master]
+GO
+ALTER DATABASE [FJWU_StudentSurvey] SET  READ_WRITE 
+GO
