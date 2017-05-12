@@ -5,7 +5,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en">
 
 <head runat="server">
-    <title>IDP Islamabad</title>
+    <title>FJWU</title>
     <%-- Meta Section --%>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -17,6 +17,10 @@
     <style>
         .size14 {
             font-size: 14px !important;
+        }
+        .SurveyAnswer > label
+        {
+            padding-left:5px;
         }
     </style>
     <asp:ContentPlaceHolder ID="head" runat="server">
@@ -31,7 +35,7 @@
                     <!-- START X-NAVIGATION -->
                     <ul class="x-navigation">
                         <li class="xn-logo">
-                            <a href="<%= Page.ResolveUrl("~/Dashboard.aspx") %>">IDP Islamabad</a>
+                            <a href="<%= Page.ResolveUrl("~/Dashboard.aspx") %>">FJWU</a>
                             <a href="#" class="x-navigation-control"></a>
                         </li>
                         <li class="xn-profile">
@@ -45,21 +49,21 @@
                                 <div class="profile-data">
                                     <div class="profile-data-name">
                                         <asp:Literal runat="server" ID="loggedinname"></asp:Literal></div>
-                                    <div class="profile-data-title">System Admin</div>
+                                    <div class="profile-data-title">Asma Saleem</div>
                                 </div>
                             </div>
                         </li>
                         <li class="xn-title">Navigation</li>
                         <li class="active">
-                            <a href="<%= Page.ResolveUrl("~/Dashboard.aspx") %>"><span class="fa fa-desktop"></span><span class="xn-text">Dashboard</span></a>
+                            <a href="<%= Page.ResolveUrl("~/StudentHome.aspx") %>"><span class="fa fa-desktop"></span><span class="xn-text">Student Home</span></a>
                         </li>
                         <li class="active">
-                            <a href="<%= Page.ResolveUrl("~/AddPerson.aspx") %>"><span class="fa fa-desktop"></span><span class="xn-text">Add New Entry</span></a>
+                            <a href="<%= Page.ResolveUrl("~/CRUD/CrudApplicationUser.aspx") %>"><span class="fa fa-desktop"></span><span class="xn-text">Create Login</span></a>
                         </li>
                         <li class="active">
-                            <a href="<%= Page.ResolveUrl("~/ViewAllPersons.aspx") %>"><span class="fa fa-desktop"></span><span class="xn-text">View and Search</span></a>
+                            <a href="<%= Page.ResolveUrl("~/Login.aspx") %>"><span class="fa fa-desktop"></span><span class="xn-text">Login </span></a>
                         </li>
-                        <li class="active">
+                        <%--<li class="active">
                             <a href="<%= Page.ResolveUrl("~/AddArea.aspx") %>"><span class="fa fa-desktop"></span><span class="xn-text">Add New Area</span></a>
                         </li>
                         <li class="xn-title">Admin</li>
@@ -74,7 +78,7 @@
                         </li>
                         <li class="active">
                             <a href="<%= Page.ResolveUrl("~/AutoApprove.aspx") %>"><span class="fa fa-desktop"></span><span class="xn-text">Auto Approve All</span></a>
-                        </li>
+                        </li>--%>
                     </ul>
                     <!-- END X-NAVIGATION -->
                 </div>

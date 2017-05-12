@@ -24,7 +24,6 @@
         </asp:SqlDataSource>
     </div>
     <asp:Panel ID="QuestionsPanel" runat="server">
-        <uc1:QuestionControl runat="server" ID="QuestionControl" />
     </asp:Panel>
     <%--<div class="row">
         <asp:ListBox ID="QuestionsList" runat="server" DataSourceID="SurveyQuestionsSource" DataTextField="SurveyQuestion" DataValueField="SurveyQuestion"></asp:ListBox>

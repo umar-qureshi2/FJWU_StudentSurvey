@@ -4,12 +4,12 @@
     <asp:Literal ID="QuestionText" runat="server"></asp:Literal>
 </div>
 <div class="row">
-    <asp:RadioButtonList ID="AnswerOptions" runat="server">
-        <asp:ListItem Value="5">Strongly Agree</asp:ListItem>
-        <asp:ListItem Value="4">Agree</asp:ListItem>
-        <asp:ListItem Value="3">Neutral</asp:ListItem>
-        <asp:ListItem Value="2">Disagree</asp:ListItem>
-        <asp:ListItem Value="1">Strongly Disagree</asp:ListItem>
+    <asp:RadioButtonList  RepeatDirection="Horizontal" ID="AnswerOptions" runat="server">
+        <asp:ListItem Value="5" style="margin-left:20px;padding-left:20px;" class="SurveyAnswer">Strongly Agree</asp:ListItem>
+        <asp:ListItem Value="4" style="margin-left:20px;padding-left:20px;" class="SurveyAnswer">Agree</asp:ListItem>
+        <asp:ListItem Value="3" style="margin-left:20px;padding-left:20px;" class="SurveyAnswer">Neutral</asp:ListItem>
+        <asp:ListItem Value="2" style="margin-left:20px;padding-left:20px;" class="SurveyAnswer">Disagree</asp:ListItem>
+        <asp:ListItem Value="1" style="margin-left:20px;padding-left:20px;" class="SurveyAnswer">Strongly Disagree</asp:ListItem>
     </asp:RadioButtonList>
 </div>
 
