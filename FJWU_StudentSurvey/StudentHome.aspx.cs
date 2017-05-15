@@ -14,7 +14,7 @@ namespace FJWU_StudentSurvey
         protected void Page_Load(object sender, EventArgs e)
         {
             SurveyName.Text = "";
-            //if (!string.IsNullOrWhiteSpace(StudentSurveys.SelectedValue))
+            if (!string.IsNullOrWhiteSpace(StudentSurveys.SelectedValue) && false)
             {
                 //QuestionsPanel.Controls.Add(new TextBox());
                 var question = LoadControl("~/UserControls/QuestionControl.ascx") as QuestionControl;
@@ -32,8 +32,9 @@ namespace FJWU_StudentSurvey
                 QuestionsPanel.Controls.Add(question);
                 QuestionsPanel.Controls.Add(question2);
             }
-            if (IsPostBack)
+            if (IsPostBack && !string.IsNullOrWhiteSpace(StudentSurveys.SelectedValue))
             {
+                //var allQuestions = db.SurveyQuestions.Where(x=>x.Survey == )
             }
         }
 

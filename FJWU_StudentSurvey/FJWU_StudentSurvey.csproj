@@ -137,7 +137,9 @@
     <Content Include="html\assets\fileupload\files\thumbnail\2V_vkjfD5Gg.jpg" />
     <Content Include="html\assets\fileupload\index.php" />
     <Content Include="html\assets\fileupload\UploadHandler.php" />
-    <Content Include="html\assets\images\users\avatar.jpg" />
+    <Content Include="html\assets\images\users\avatar2.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="html\assets\upload.php" />
     <Content Include="html\assets\uploads\MIME-Types\books.xml" />
     <Content Include="html\assets\uploads\MIME-Types\elFinder.class.php" />
