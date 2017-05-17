@@ -13,21 +13,12 @@ namespace FJWU_StudentSurvey.UserControls {
     public partial class QuestionControl {
         
         /// <summary>
-        /// QuestionText control.
+        /// SurveyQuestionId control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Literal QuestionText;
-        
-        /// <summary>
-        /// AnswerOptions control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RadioButtonList AnswerOptions;
+
     }
 }

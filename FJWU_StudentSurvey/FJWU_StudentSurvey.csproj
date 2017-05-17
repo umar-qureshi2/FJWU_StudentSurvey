@@ -114,6 +114,7 @@
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\Site.css" />
     <Content Include="DB\DbScriptv1.txt" />
+    <Content Include="DB\DBScriptv2-without db users.txt" />
     <Content Include="DB\v3_DeptTable.sql" />
     <Content Include="DB\v4_Courses_Dept.sql" />
     <Content Include="DB\vs_DepartmentTable.sql" />

@@ -9,6 +9,9 @@ namespace FJWU_StudentSurvey.UserControls
 {
     public partial class QuestionControl : System.Web.UI.UserControl
     {
+        public global::System.Web.UI.WebControls.Literal SurveyQuestionId;
+        public global::System.Web.UI.WebControls.Literal QuestionText;
+        public global::System.Web.UI.WebControls.RadioButtonList AnswerOptions;
         //public event Action LoadCompleted = delegate { };
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -16,9 +19,10 @@ namespace FJWU_StudentSurvey.UserControls
             //this.LoadCompleted();
         }
 
-        public QuestionControl UpdateQuestion(string text,string id = null)
+        public QuestionControl UpdateQuestion(string text,string surveyQuestionId,string id = null)
         {
-            QuestionText.Text = text;
+           QuestionText.Text = text;
+            SurveyQuestionId.Text = surveyQuestionId;
             ID = id ?? ID;
             return this;
         }
