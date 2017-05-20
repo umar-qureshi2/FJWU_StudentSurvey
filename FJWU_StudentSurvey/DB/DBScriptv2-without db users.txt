@@ -1,9 +1,69 @@
-﻿if not exists(select * from sys.databases where name = 'FJWU_StudentSurvey')
-	CREATE DATABASE [FJWU_StudentSurvey]
-
+﻿USE [master]
+GO
+/****** Object:  Database [FJWU_StudentSurvey]    Script Date: 5/20/2017 10:49:07 PM ******/
+CREATE DATABASE [FJWU_StudentSurvey]
+GO
+ALTER DATABASE [FJWU_StudentSurvey] SET ANSI_NULL_DEFAULT OFF 
+GO
+ALTER DATABASE [FJWU_StudentSurvey] SET ANSI_NULLS OFF 
+GO
+ALTER DATABASE [FJWU_StudentSurvey] SET ANSI_PADDING OFF 
+GO
+ALTER DATABASE [FJWU_StudentSurvey] SET ANSI_WARNINGS OFF 
+GO
+ALTER DATABASE [FJWU_StudentSurvey] SET ARITHABORT OFF 
+GO
+ALTER DATABASE [FJWU_StudentSurvey] SET AUTO_CLOSE ON 
+GO
+ALTER DATABASE [FJWU_StudentSurvey] SET AUTO_CREATE_STATISTICS ON 
+GO
+ALTER DATABASE [FJWU_StudentSurvey] SET AUTO_SHRINK OFF 
+GO
+ALTER DATABASE [FJWU_StudentSurvey] SET AUTO_UPDATE_STATISTICS ON 
+GO
+ALTER DATABASE [FJWU_StudentSurvey] SET CURSOR_CLOSE_ON_COMMIT OFF 
+GO
+ALTER DATABASE [FJWU_StudentSurvey] SET CURSOR_DEFAULT  GLOBAL 
+GO
+ALTER DATABASE [FJWU_StudentSurvey] SET CONCAT_NULL_YIELDS_NULL OFF 
+GO
+ALTER DATABASE [FJWU_StudentSurvey] SET NUMERIC_ROUNDABORT OFF 
+GO
+ALTER DATABASE [FJWU_StudentSurvey] SET QUOTED_IDENTIFIER OFF 
+GO
+ALTER DATABASE [FJWU_StudentSurvey] SET RECURSIVE_TRIGGERS OFF 
+GO
+ALTER DATABASE [FJWU_StudentSurvey] SET  ENABLE_BROKER 
+GO
+ALTER DATABASE [FJWU_StudentSurvey] SET AUTO_UPDATE_STATISTICS_ASYNC OFF 
+GO
+ALTER DATABASE [FJWU_StudentSurvey] SET DATE_CORRELATION_OPTIMIZATION OFF 
+GO
+ALTER DATABASE [FJWU_StudentSurvey] SET TRUSTWORTHY OFF 
+GO
+ALTER DATABASE [FJWU_StudentSurvey] SET ALLOW_SNAPSHOT_ISOLATION OFF 
+GO
+ALTER DATABASE [FJWU_StudentSurvey] SET PARAMETERIZATION SIMPLE 
+GO
+ALTER DATABASE [FJWU_StudentSurvey] SET READ_COMMITTED_SNAPSHOT OFF 
+GO
+ALTER DATABASE [FJWU_StudentSurvey] SET HONOR_BROKER_PRIORITY OFF 
+GO
+ALTER DATABASE [FJWU_StudentSurvey] SET RECOVERY SIMPLE 
+GO
+ALTER DATABASE [FJWU_StudentSurvey] SET  MULTI_USER 
+GO
+ALTER DATABASE [FJWU_StudentSurvey] SET PAGE_VERIFY CHECKSUM  
+GO
+ALTER DATABASE [FJWU_StudentSurvey] SET DB_CHAINING OFF 
+GO
+ALTER DATABASE [FJWU_StudentSurvey] SET FILESTREAM( NON_TRANSACTED_ACCESS = OFF ) 
+GO
+ALTER DATABASE [FJWU_StudentSurvey] SET TARGET_RECOVERY_TIME = 0 SECONDS 
+GO
 USE [FJWU_StudentSurvey]
 GO
-/****** Object:  Table [dbo].[AnswerOptions]    Script Date: 5/17/2017 7:31:52 AM ******/
+/****** Object:  Table [dbo].[AnswerOptions]    Script Date: 5/20/2017 10:49:07 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -21,7 +81,7 @@ CREATE TABLE [dbo].[AnswerOptions](
 GO
 SET ANSI_PADDING OFF
 GO
-/****** Object:  Table [dbo].[ApplicationUsers]    Script Date: 5/17/2017 7:31:52 AM ******/
+/****** Object:  Table [dbo].[ApplicationUsers]    Script Date: 5/20/2017 10:49:07 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -43,7 +103,7 @@ CREATE TABLE [dbo].[ApplicationUsers](
 GO
 SET ANSI_PADDING OFF
 GO
-/****** Object:  Table [dbo].[Courses]    Script Date: 5/17/2017 7:31:52 AM ******/
+/****** Object:  Table [dbo].[Courses]    Script Date: 5/20/2017 10:49:07 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -64,7 +124,7 @@ CREATE TABLE [dbo].[Courses](
 GO
 SET ANSI_PADDING OFF
 GO
-/****** Object:  Table [dbo].[Department]    Script Date: 5/17/2017 7:31:52 AM ******/
+/****** Object:  Table [dbo].[Department]    Script Date: 5/20/2017 10:49:07 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -83,7 +143,7 @@ CREATE TABLE [dbo].[Department](
 GO
 SET ANSI_PADDING OFF
 GO
-/****** Object:  Table [dbo].[Questions]    Script Date: 5/17/2017 7:31:52 AM ******/
+/****** Object:  Table [dbo].[Questions]    Script Date: 5/20/2017 10:49:07 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -103,7 +163,7 @@ CREATE TABLE [dbo].[Questions](
 GO
 SET ANSI_PADDING OFF
 GO
-/****** Object:  Table [dbo].[Students]    Script Date: 5/17/2017 7:31:52 AM ******/
+/****** Object:  Table [dbo].[Students]    Script Date: 5/20/2017 10:49:07 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -122,7 +182,7 @@ CREATE TABLE [dbo].[Students](
 GO
 SET ANSI_PADDING OFF
 GO
-/****** Object:  Table [dbo].[Survey]    Script Date: 5/17/2017 7:31:52 AM ******/
+/****** Object:  Table [dbo].[Survey]    Script Date: 5/20/2017 10:49:07 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -145,7 +205,7 @@ CREATE TABLE [dbo].[Survey](
 GO
 SET ANSI_PADDING OFF
 GO
-/****** Object:  Table [dbo].[SurveyAnswers]    Script Date: 5/17/2017 7:31:52 AM ******/
+/****** Object:  Table [dbo].[SurveyAnswers]    Script Date: 5/20/2017 10:49:07 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -166,7 +226,7 @@ CREATE TABLE [dbo].[SurveyAnswers](
 GO
 SET ANSI_PADDING OFF
 GO
-/****** Object:  Table [dbo].[SurveyQuestions]    Script Date: 5/17/2017 7:31:52 AM ******/
+/****** Object:  Table [dbo].[SurveyQuestions]    Script Date: 5/20/2017 10:49:07 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -182,7 +242,7 @@ CREATE TABLE [dbo].[SurveyQuestions](
 ) ON [PRIMARY]
 
 GO
-/****** Object:  Table [dbo].[Teachers]    Script Date: 5/17/2017 7:31:52 AM ******/
+/****** Object:  Table [dbo].[Teachers]    Script Date: 5/20/2017 10:49:07 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -200,6 +260,61 @@ CREATE TABLE [dbo].[Teachers](
 
 GO
 SET ANSI_PADDING OFF
+GO
+SET IDENTITY_INSERT [dbo].[ApplicationUsers] ON 
+
+GO
+INSERT [dbo].[ApplicationUsers] ([UserId], [UserName], [Password], [UserMapping], [UserPermission]) VALUES (1000, N'admin', N'admin', NULL, 0)
+GO
+SET IDENTITY_INSERT [dbo].[ApplicationUsers] OFF
+GO
+SET IDENTITY_INSERT [dbo].[Courses] ON 
+
+GO
+INSERT [dbo].[Courses] ([CourseID], [CourseName], [CourseSession], [DeptId]) VALUES (1, N'Sample Course', N'Fall 2017', 1)
+GO
+INSERT [dbo].[Courses] ([CourseID], [CourseName], [CourseSession], [DeptId]) VALUES (3, N'Second Course', N'Fall 2018', 1)
+GO
+INSERT [dbo].[Courses] ([CourseID], [CourseName], [CourseSession], [DeptId]) VALUES (4, N'Third Course', N'Summer 2017', 1)
+GO
+SET IDENTITY_INSERT [dbo].[Courses] OFF
+GO
+SET IDENTITY_INSERT [dbo].[Department] ON 
+
+GO
+INSERT [dbo].[Department] ([DepartmentId], [Name]) VALUES (1, N'Computer Science')
+GO
+INSERT [dbo].[Department] ([DepartmentId], [Name]) VALUES (2, N'Software Engineering')
+GO
+SET IDENTITY_INSERT [dbo].[Department] OFF
+GO
+SET IDENTITY_INSERT [dbo].[Questions] ON 
+
+GO
+INSERT [dbo].[Questions] ([QuestionId], [QuestionText], [QuestionType]) VALUES (1, N'SampleQuestion', 0)
+GO
+SET IDENTITY_INSERT [dbo].[Questions] OFF
+GO
+SET IDENTITY_INSERT [dbo].[Survey] ON 
+
+GO
+INSERT [dbo].[Survey] ([SurveyId], [TeacherId], [CourseId], [StartTime], [EndTime], [DisplayName]) VALUES (1, 1, 1, NULL, NULL, N'Sample Course')
+GO
+SET IDENTITY_INSERT [dbo].[Survey] OFF
+GO
+SET IDENTITY_INSERT [dbo].[SurveyQuestions] ON 
+
+GO
+INSERT [dbo].[SurveyQuestions] ([SurveyQuestion], [Question], [Survey]) VALUES (1, 1, 1)
+GO
+SET IDENTITY_INSERT [dbo].[SurveyQuestions] OFF
+GO
+SET IDENTITY_INSERT [dbo].[Teachers] ON 
+
+GO
+INSERT [dbo].[Teachers] ([TeacherId], [TeacherName]) VALUES (1, N'Teacher 1')
+GO
+SET IDENTITY_INSERT [dbo].[Teachers] OFF
 GO
 ALTER TABLE [dbo].[Courses]  WITH NOCHECK ADD  CONSTRAINT [FK_Courses_Department] FOREIGN KEY([DeptId])
 REFERENCES [dbo].[Department] ([DepartmentId])
@@ -235,4 +350,8 @@ ALTER TABLE [dbo].[SurveyQuestions]  WITH CHECK ADD  CONSTRAINT [FK_SurveyQuesti
 REFERENCES [dbo].[Survey] ([SurveyId])
 GO
 ALTER TABLE [dbo].[SurveyQuestions] CHECK CONSTRAINT [FK_SurveyQuestions_Survey]
+GO
+USE [master]
+GO
+ALTER DATABASE [FJWU_StudentSurvey] SET  READ_WRITE 
 GO
