@@ -812,6 +812,12 @@
     <Content Include="html\css\fonts\glyphicons-halflings-regular.woff" />
     <Content Include="html\js\plugins\jquery\jquery-2.1.1.min.map" />
     <Content Include="MasterPage.master" />
+    <Content Include="CRUD\DepartmentAdmin.aspx" />
+    <Content Include="CRUD\CoursesAdmin.aspx" />
+    <Content Include="CRUD\TeachersAdmin.aspx" />
+    <Content Include="CRUD\QuestionAdmin.aspx" />
+    <Content Include="CRUD\SurveyAdmin.aspx" />
+    <Content Include="CRUD\SurveyQuestionAdmin.aspx" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
@@ -949,6 +955,48 @@
     </Compile>
     <Compile Include="CRUD\CrudApplicationUser.aspx.designer.cs">
       <DependentUpon>CrudApplicationUser.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CRUD\DepartmentAdmin.aspx.cs">
+      <DependentUpon>DepartmentAdmin.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CRUD\DepartmentAdmin.aspx.designer.cs">
+      <DependentUpon>DepartmentAdmin.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CRUD\CoursesAdmin.aspx.cs">
+      <DependentUpon>CoursesAdmin.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CRUD\CoursesAdmin.aspx.designer.cs">
+      <DependentUpon>CoursesAdmin.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CRUD\TeachersAdmin.aspx.cs">
+      <DependentUpon>TeachersAdmin.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CRUD\TeachersAdmin.aspx.designer.cs">
+      <DependentUpon>TeachersAdmin.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CRUD\QuestionAdmin.aspx.cs">
+      <DependentUpon>QuestionAdmin.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CRUD\QuestionAdmin.aspx.designer.cs">
+      <DependentUpon>QuestionAdmin.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CRUD\SurveyAdmin.aspx.cs">
+      <DependentUpon>SurveyAdmin.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CRUD\SurveyAdmin.aspx.designer.cs">
+      <DependentUpon>SurveyAdmin.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CRUD\SurveyQuestionAdmin.aspx.cs">
+      <DependentUpon>SurveyQuestionAdmin.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CRUD\SurveyQuestionAdmin.aspx.designer.cs">
+      <DependentUpon>SurveyQuestionAdmin.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

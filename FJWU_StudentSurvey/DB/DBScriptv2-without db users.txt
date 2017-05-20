@@ -1,4 +1,7 @@
-﻿USE [FJWU_StudentSurvey]
+﻿if not exists(select * from sys.databases where name = 'FJWU_StudentSurvey')
+	CREATE DATABASE [FJWU_StudentSurvey]
+
+USE [FJWU_StudentSurvey]
 GO
 /****** Object:  Table [dbo].[AnswerOptions]    Script Date: 5/17/2017 7:31:52 AM ******/
 SET ANSI_NULLS ON

@@ -10,25 +10,25 @@
 namespace FJWU_StudentSurvey {
     
     
-    public partial class CrudApplicationUser {
+    public partial class DepartmentAdmin {
         
         /// <summary>
-        /// ApplicationUsersGrid control.
+        /// DepartmentsGrid control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView ApplicationUsersGrid;
+        protected global::System.Web.UI.WebControls.GridView DepartmentsGrid;
         
         /// <summary>
-        /// ApplicationUsersSource control.
+        /// DepartmentsDataSource control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.SqlDataSource ApplicationUsersSource;
+        protected global::System.Web.UI.WebControls.SqlDataSource DepartmentsDataSource;
         
         /// <summary>
         /// warningtext control.
@@ -40,12 +40,12 @@ namespace FJWU_StudentSurvey {
         protected global::System.Web.UI.WebControls.Literal warningtext;
         
         /// <summary>
-        /// AddApplicationUserForm control.
+        /// DepartmentsForm control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.FormView AddApplicationUserForm;
+        protected global::System.Web.UI.WebControls.FormView DepartmentsForm;
     }
 }

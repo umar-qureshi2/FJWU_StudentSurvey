@@ -58,7 +58,25 @@
                             <a href="<%= Page.ResolveUrl("~/StudentHome.aspx") %>"><span class="fa fa-desktop"></span><span class="xn-text">Student Home</span></a>
                         </li>
                         <li class="active">
+                            <a href="<%= Page.ResolveUrl("~/CRUD/CoursesAdmin.aspx") %>"><span class="fa fa-desktop"></span><span class="xn-text">Courses</span></a>
+                        </li>
+                        <li class="active">
                             <a href="<%= Page.ResolveUrl("~/CRUD/CrudApplicationUser.aspx") %>"><span class="fa fa-desktop"></span><span class="xn-text">Create Login</span></a>
+                        </li>
+                        <li class="active">
+                            <a href="<%= Page.ResolveUrl("~/CRUD/DepartmentAdmin.aspx") %>"><span class="fa fa-desktop"></span><span class="xn-text">Departments</span></a>
+                        </li>
+                        <li class="active">
+                            <a href="<%= Page.ResolveUrl("~/CRUD/QuestionAdmin.aspx") %>"><span class="fa fa-desktop"></span><span class="xn-text">Questions</span></a>
+                        </li>
+                        <li class="active">
+                            <a href="<%= Page.ResolveUrl("~/CRUD/SurveyAdmin.aspx") %>"><span class="fa fa-desktop"></span><span class="xn-text">Surveys</span></a>
+                        </li>
+                        <li class="active">
+                            <a href="<%= Page.ResolveUrl("~/CRUD/SurveyQuestionAdmin.aspx") %>"><span class="fa fa-desktop"></span><span class="xn-text">Survey Questions</span></a>
+                        </li>
+                        <li class="active">
+                            <a href="<%= Page.ResolveUrl("~/CRUD/TeachersAdmin.aspx") %>"><span class="fa fa-desktop"></span><span class="xn-text">Teachers</span></a>
                         </li>
                         <li class="active">
                             <a href="<%= Page.ResolveUrl("~/Login.aspx") %>"><span class="fa fa-desktop"></span><span class="xn-text">Login </span></a>
