@@ -68,7 +68,7 @@
         <div class="col-md-12">
             <div class="panel panel-default">
                 <div class="panel-heading">
-                    <h3 class="panel-title"><strong>Add/Edit Course</strong> </h3>
+                    <h3 class="panel-title"><strong>Add/Edit</strong> </h3>
                     <ul class="panel-controls">
                         <li><a href="#" class="panel-remove"><span class="fa fa-times"></span></a></li>
                     </ul>

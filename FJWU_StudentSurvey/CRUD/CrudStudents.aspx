@@ -1,9 +1,17 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage.master" AutoEventWireup="true" CodeBehind="CrudStudents.aspx.cs" Inherits="FJWU_StudentSurvey.CrudStudents" %>
+
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="SearchPlaceholder" runat="server">
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="MainContent" runat="server">
+    <div class="row">
+        <asp:GridView CssClass="table datatable table-hover" ID="StudentsGrid" runat="server" DataSourceID="StudentDataSource" AllowPaging="True" AllowSorting="True">
+            <Columns>
+                <asp:CommandField ShowEditButton="True" ShowDeleteButton="True" ShowSelectButton="True"></asp:CommandField>
+            </Columns>
+        </asp:GridView>
+    </div>
     <div class="row">
         <asp:FormView ID="StudentForm" runat="server" DataKeyNames="StudentId" DataSourceID="StudentDataSource">
             <EditItemTemplate>

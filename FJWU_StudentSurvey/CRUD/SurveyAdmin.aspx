@@ -28,7 +28,7 @@
                 <div class="panel-body panel-body-table dataTables_wrapper no-footer">
 
 
-                    <asp:GridView ID="SurveyGrid" runat="server" AutoGenerateColumns="False" DataKeyNames="SurveyId" DataSourceID="SurveySource" AllowPaging="True" AllowSorting="True">
+                    <asp:GridView  CssClass="table datatable table-hover" ID="SurveyGrid" runat="server" AutoGenerateColumns="False" DataKeyNames="SurveyId" DataSourceID="SurveySource" AllowPaging="True" AllowSorting="True">
                         <Columns>
                             <asp:CommandField ShowEditButton="True" ShowDeleteButton="True" ShowSelectButton="True"></asp:CommandField>
                             <asp:BoundField DataField="SurveyId" HeaderText="SurveyId" ReadOnly="True" InsertVisible="False" SortExpression="SurveyId"></asp:BoundField>
@@ -78,7 +78,7 @@
         <div class="col-md-12">
             <div class="panel panel-default">
                 <div class="panel-heading">
-                    <h3 class="panel-title"><strong>Add/Edit Course</strong> </h3>
+                    <h3 class="panel-title"><strong>Add/Edit</strong> </h3>
                     <ul class="panel-controls">
                         <li><a href="#" class="panel-remove"><span class="fa fa-times"></span></a></li>
                     </ul>

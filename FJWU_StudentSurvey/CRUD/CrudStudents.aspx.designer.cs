@@ -13,6 +13,15 @@ namespace FJWU_StudentSurvey {
     public partial class CrudStudents {
         
         /// <summary>
+        /// StudentsGrid control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.GridView StudentsGrid;
+        
+        /// <summary>
         /// StudentForm control.
         /// </summary>
         /// <remarks>
