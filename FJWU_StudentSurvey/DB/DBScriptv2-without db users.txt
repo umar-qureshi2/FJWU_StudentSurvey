@@ -1,5 +1,12 @@
 ﻿USE [master]
 GO
+
+/****** Object:  Database [FJWU_StudentSurvey]    Script Date: 5/21/2017 2:18:32 PM ******/
+DROP DATABASE [FJWU_StudentSurvey]
+GO
+
+
+
 /****** Object:  Database [FJWU_StudentSurvey]    Script Date: 5/20/2017 10:49:07 PM ******/
 CREATE DATABASE [FJWU_StudentSurvey]
 GO

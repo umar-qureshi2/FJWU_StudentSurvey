@@ -818,6 +818,7 @@
     <Content Include="CRUD\QuestionAdmin.aspx" />
     <Content Include="CRUD\SurveyAdmin.aspx" />
     <Content Include="CRUD\SurveyQuestionAdmin.aspx" />
+    <Content Include="CRUD\CrudStudents.aspx" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
@@ -852,6 +853,7 @@
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="Site.Master" />
+    <Content Include="StudentSignup.aspx" />
     <Content Include="UserControls\QuestionControl.ascx" />
     <Content Include="ViewSwitcher.ascx" />
     <Content Include="Web.config" />
@@ -920,6 +922,13 @@
     </Compile>
     <Compile Include="Site.Mobile.Master.designer.cs">
       <DependentUpon>Site.Mobile.Master</DependentUpon>
+    </Compile>
+    <Compile Include="StudentSignup.aspx.cs">
+      <DependentUpon>StudentSignup.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="StudentSignup.aspx.designer.cs">
+      <DependentUpon>StudentSignup.aspx</DependentUpon>
     </Compile>
     <Compile Include="UserControls\QuestionControl.ascx.cs">
       <DependentUpon>QuestionControl.ascx</DependentUpon>
@@ -997,6 +1006,13 @@
     </Compile>
     <Compile Include="CRUD\SurveyQuestionAdmin.aspx.designer.cs">
       <DependentUpon>SurveyQuestionAdmin.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CRUD\CrudStudents.aspx.cs">
+      <DependentUpon>CrudStudents.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CRUD\CrudStudents.aspx.designer.cs">
+      <DependentUpon>CrudStudents.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

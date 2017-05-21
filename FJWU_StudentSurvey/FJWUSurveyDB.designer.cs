@@ -30,9 +30,6 @@ namespace FJWU_StudentSurvey
 		
     #region Extensibility Method Definitions
     partial void OnCreated();
-    partial void InsertTeacher(Teacher instance);
-    partial void UpdateTeacher(Teacher instance);
-    partial void DeleteTeacher(Teacher instance);
     partial void InsertApplicationUser(ApplicationUser instance);
     partial void UpdateApplicationUser(ApplicationUser instance);
     partial void DeleteApplicationUser(ApplicationUser instance);
@@ -42,12 +39,12 @@ namespace FJWU_StudentSurvey
     partial void InsertDepartment(Department instance);
     partial void UpdateDepartment(Department instance);
     partial void DeleteDepartment(Department instance);
-    partial void InsertStudent(Student instance);
-    partial void UpdateStudent(Student instance);
-    partial void DeleteStudent(Student instance);
     partial void InsertQuestion(Question instance);
     partial void UpdateQuestion(Question instance);
     partial void DeleteQuestion(Question instance);
+    partial void InsertStudent(Student instance);
+    partial void UpdateStudent(Student instance);
+    partial void DeleteStudent(Student instance);
     partial void InsertSurvey(Survey instance);
     partial void UpdateSurvey(Survey instance);
     partial void DeleteSurvey(Survey instance);
@@ -57,6 +54,9 @@ namespace FJWU_StudentSurvey
     partial void InsertSurveyQuestion(SurveyQuestion instance);
     partial void UpdateSurveyQuestion(SurveyQuestion instance);
     partial void DeleteSurveyQuestion(SurveyQuestion instance);
+    partial void InsertTeacher(Teacher instance);
+    partial void UpdateTeacher(Teacher instance);
+    partial void DeleteTeacher(Teacher instance);
     #endregion
 		
 		public FJWUSurveyDBDataContext() : 
@@ -89,11 +89,11 @@ namespace FJWU_StudentSurvey
 			OnCreated();
 		}
 		
-		public System.Data.Linq.Table<Teacher> Teachers
+		public System.Data.Linq.Table<ApplicationUser> ApplicationUsers
 		{
 			get
 			{
-				return this.GetTable<Teacher>();
+				return this.GetTable<ApplicationUser>();
 			}
 		}
 		
@@ -102,14 +102,6 @@ namespace FJWU_StudentSurvey
 			get
 			{
 				return this.GetTable<AnswerOption>();
-			}
-		}
-		
-		public System.Data.Linq.Table<ApplicationUser> ApplicationUsers
-		{
-			get
-			{
-				return this.GetTable<ApplicationUser>();
 			}
 		}
 		
@@ -129,19 +121,19 @@ namespace FJWU_StudentSurvey
 			}
 		}
 		
-		public System.Data.Linq.Table<Student> Students
-		{
-			get
-			{
-				return this.GetTable<Student>();
-			}
-		}
-		
 		public System.Data.Linq.Table<Question> Questions
 		{
 			get
 			{
 				return this.GetTable<Question>();
+			}
+		}
+		
+		public System.Data.Linq.Table<Student> Students
+		{
+			get
+			{
+				return this.GetTable<Student>();
 			}
 		}
 		
@@ -168,217 +160,12 @@ namespace FJWU_StudentSurvey
 				return this.GetTable<SurveyQuestion>();
 			}
 		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Teachers")]
-	public partial class Teacher : INotifyPropertyChanging, INotifyPropertyChanged
-	{
 		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private int _TeacherId;
-		
-		private string _TeacherName;
-		
-		private EntitySet<Survey> _Surveys;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnTeacherIdChanging(int value);
-    partial void OnTeacherIdChanged();
-    partial void OnTeacherNameChanging(string value);
-    partial void OnTeacherNameChanged();
-    #endregion
-		
-		public Teacher()
-		{
-			this._Surveys = new EntitySet<Survey>(new Action<Survey>(this.attach_Surveys), new Action<Survey>(this.detach_Surveys));
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TeacherId", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
-		public int TeacherId
+		public System.Data.Linq.Table<Teacher> Teachers
 		{
 			get
 			{
-				return this._TeacherId;
-			}
-			set
-			{
-				if ((this._TeacherId != value))
-				{
-					this.OnTeacherIdChanging(value);
-					this.SendPropertyChanging();
-					this._TeacherId = value;
-					this.SendPropertyChanged("TeacherId");
-					this.OnTeacherIdChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TeacherName", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
-		public string TeacherName
-		{
-			get
-			{
-				return this._TeacherName;
-			}
-			set
-			{
-				if ((this._TeacherName != value))
-				{
-					this.OnTeacherNameChanging(value);
-					this.SendPropertyChanging();
-					this._TeacherName = value;
-					this.SendPropertyChanged("TeacherName");
-					this.OnTeacherNameChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Teacher_Survey", Storage="_Surveys", ThisKey="TeacherId", OtherKey="TeacherId")]
-		public EntitySet<Survey> Surveys
-		{
-			get
-			{
-				return this._Surveys;
-			}
-			set
-			{
-				this._Surveys.Assign(value);
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-		
-		private void attach_Surveys(Survey entity)
-		{
-			this.SendPropertyChanging();
-			entity.Teacher = this;
-		}
-		
-		private void detach_Surveys(Survey entity)
-		{
-			this.SendPropertyChanging();
-			entity.Teacher = null;
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.AnswerOptions")]
-	public partial class AnswerOption
-	{
-		
-		private string _Option2;
-		
-		private string _Option3;
-		
-		private string _Option4;
-		
-		private string _Option5;
-		
-		private string _Option1;
-		
-		public AnswerOption()
-		{
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Option2", DbType="VarChar(50)")]
-		public string Option2
-		{
-			get
-			{
-				return this._Option2;
-			}
-			set
-			{
-				if ((this._Option2 != value))
-				{
-					this._Option2 = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Option3", DbType="VarChar(50)")]
-		public string Option3
-		{
-			get
-			{
-				return this._Option3;
-			}
-			set
-			{
-				if ((this._Option3 != value))
-				{
-					this._Option3 = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Option4", DbType="VarChar(50)")]
-		public string Option4
-		{
-			get
-			{
-				return this._Option4;
-			}
-			set
-			{
-				if ((this._Option4 != value))
-				{
-					this._Option4 = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Option5", DbType="VarChar(50)")]
-		public string Option5
-		{
-			get
-			{
-				return this._Option5;
-			}
-			set
-			{
-				if ((this._Option5 != value))
-				{
-					this._Option5 = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Option1", DbType="VarChar(50)")]
-		public string Option1
-		{
-			get
-			{
-				return this._Option1;
-			}
-			set
-			{
-				if ((this._Option1 != value))
-				{
-					this._Option1 = value;
-				}
+				return this.GetTable<Teacher>();
 			}
 		}
 	}
@@ -537,6 +324,105 @@ namespace FJWU_StudentSurvey
 			if ((this.PropertyChanged != null))
 			{
 				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.AnswerOptions")]
+	public partial class AnswerOption
+	{
+		
+		private string _Option2;
+		
+		private string _Option3;
+		
+		private string _Option4;
+		
+		private string _Option5;
+		
+		private string _Option1;
+		
+		public AnswerOption()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Option2", DbType="VarChar(50)")]
+		public string Option2
+		{
+			get
+			{
+				return this._Option2;
+			}
+			set
+			{
+				if ((this._Option2 != value))
+				{
+					this._Option2 = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Option3", DbType="VarChar(50)")]
+		public string Option3
+		{
+			get
+			{
+				return this._Option3;
+			}
+			set
+			{
+				if ((this._Option3 != value))
+				{
+					this._Option3 = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Option4", DbType="VarChar(50)")]
+		public string Option4
+		{
+			get
+			{
+				return this._Option4;
+			}
+			set
+			{
+				if ((this._Option4 != value))
+				{
+					this._Option4 = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Option5", DbType="VarChar(50)")]
+		public string Option5
+		{
+			get
+			{
+				return this._Option5;
+			}
+			set
+			{
+				if ((this._Option5 != value))
+				{
+					this._Option5 = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Option1", DbType="VarChar(50)")]
+		public string Option1
+		{
+			get
+			{
+				return this._Option1;
+			}
+			set
+			{
+				if ((this._Option1 != value))
+				{
+					this._Option1 = value;
+				}
 			}
 		}
 	}
@@ -756,6 +642,8 @@ namespace FJWU_StudentSurvey
 		
 		private EntitySet<Course> _Courses;
 		
+		private EntitySet<Student> _Students;
+		
     #region Extensibility Method Definitions
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
@@ -769,6 +657,7 @@ namespace FJWU_StudentSurvey
 		public Department()
 		{
 			this._Courses = new EntitySet<Course>(new Action<Course>(this.attach_Courses), new Action<Course>(this.detach_Courses));
+			this._Students = new EntitySet<Student>(new Action<Student>(this.attach_Students), new Action<Student>(this.detach_Students));
 			OnCreated();
 		}
 		
@@ -825,6 +714,19 @@ namespace FJWU_StudentSurvey
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Department_Student", Storage="_Students", ThisKey="DepartmentId", OtherKey="Department")]
+		public EntitySet<Student> Students
+		{
+			get
+			{
+				return this._Students;
+			}
+			set
+			{
+				this._Students.Assign(value);
+			}
+		}
+		
 		public event PropertyChangingEventHandler PropertyChanging;
 		
 		public event PropertyChangedEventHandler PropertyChanged;
@@ -856,119 +758,17 @@ namespace FJWU_StudentSurvey
 			this.SendPropertyChanging();
 			entity.Department = null;
 		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Students")]
-	public partial class Student : INotifyPropertyChanging, INotifyPropertyChanged
-	{
 		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private int _StudentId;
-		
-		private string _StudentName;
-		
-		private EntitySet<SurveyAnswer> _SurveyAnswers;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnStudentIdChanging(int value);
-    partial void OnStudentIdChanged();
-    partial void OnStudentNameChanging(string value);
-    partial void OnStudentNameChanged();
-    #endregion
-		
-		public Student()
-		{
-			this._SurveyAnswers = new EntitySet<SurveyAnswer>(new Action<SurveyAnswer>(this.attach_SurveyAnswers), new Action<SurveyAnswer>(this.detach_SurveyAnswers));
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_StudentId", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
-		public int StudentId
-		{
-			get
-			{
-				return this._StudentId;
-			}
-			set
-			{
-				if ((this._StudentId != value))
-				{
-					this.OnStudentIdChanging(value);
-					this.SendPropertyChanging();
-					this._StudentId = value;
-					this.SendPropertyChanged("StudentId");
-					this.OnStudentIdChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_StudentName", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
-		public string StudentName
-		{
-			get
-			{
-				return this._StudentName;
-			}
-			set
-			{
-				if ((this._StudentName != value))
-				{
-					this.OnStudentNameChanging(value);
-					this.SendPropertyChanging();
-					this._StudentName = value;
-					this.SendPropertyChanged("StudentName");
-					this.OnStudentNameChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Student_SurveyAnswer", Storage="_SurveyAnswers", ThisKey="StudentId", OtherKey="Student")]
-		public EntitySet<SurveyAnswer> SurveyAnswers
-		{
-			get
-			{
-				return this._SurveyAnswers;
-			}
-			set
-			{
-				this._SurveyAnswers.Assign(value);
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-		
-		private void attach_SurveyAnswers(SurveyAnswer entity)
+		private void attach_Students(Student entity)
 		{
 			this.SendPropertyChanging();
-			entity.Student1 = this;
+			entity.Department1 = this;
 		}
 		
-		private void detach_SurveyAnswers(SurveyAnswer entity)
+		private void detach_Students(Student entity)
 		{
 			this.SendPropertyChanging();
-			entity.Student1 = null;
+			entity.Department1 = null;
 		}
 	}
 	
@@ -1107,6 +907,425 @@ namespace FJWU_StudentSurvey
 		{
 			this.SendPropertyChanging();
 			entity.Question1 = null;
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Students")]
+	public partial class Student : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _StudentId;
+		
+		private string _StudentName;
+		
+		private string _FatherName;
+		
+		private string _Email;
+		
+		private string _Address;
+		
+		private string _MobileNumber;
+		
+		private int _Department;
+		
+		private string _Program;
+		
+		private string _Semester;
+		
+		private string _SupportingProgram;
+		
+		private string _BloodGroup;
+		
+		private string _UserName;
+		
+		private string _Password;
+		
+		private EntitySet<SurveyAnswer> _SurveyAnswers;
+		
+		private EntityRef<Department> _Department1;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnStudentIdChanging(int value);
+    partial void OnStudentIdChanged();
+    partial void OnStudentNameChanging(string value);
+    partial void OnStudentNameChanged();
+    partial void OnFatherNameChanging(string value);
+    partial void OnFatherNameChanged();
+    partial void OnEmailChanging(string value);
+    partial void OnEmailChanged();
+    partial void OnAddressChanging(string value);
+    partial void OnAddressChanged();
+    partial void OnMobileNumberChanging(string value);
+    partial void OnMobileNumberChanged();
+    partial void OnDepartmentChanging(int value);
+    partial void OnDepartmentChanged();
+    partial void OnProgramChanging(string value);
+    partial void OnProgramChanged();
+    partial void OnSemesterChanging(string value);
+    partial void OnSemesterChanged();
+    partial void OnSupportingProgramChanging(string value);
+    partial void OnSupportingProgramChanged();
+    partial void OnBloodGroupChanging(string value);
+    partial void OnBloodGroupChanged();
+    partial void OnUserNameChanging(string value);
+    partial void OnUserNameChanged();
+    partial void OnPasswordChanging(string value);
+    partial void OnPasswordChanged();
+    #endregion
+		
+		public Student()
+		{
+			this._SurveyAnswers = new EntitySet<SurveyAnswer>(new Action<SurveyAnswer>(this.attach_SurveyAnswers), new Action<SurveyAnswer>(this.detach_SurveyAnswers));
+			this._Department1 = default(EntityRef<Department>);
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_StudentId", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int StudentId
+		{
+			get
+			{
+				return this._StudentId;
+			}
+			set
+			{
+				if ((this._StudentId != value))
+				{
+					this.OnStudentIdChanging(value);
+					this.SendPropertyChanging();
+					this._StudentId = value;
+					this.SendPropertyChanged("StudentId");
+					this.OnStudentIdChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_StudentName", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
+		public string StudentName
+		{
+			get
+			{
+				return this._StudentName;
+			}
+			set
+			{
+				if ((this._StudentName != value))
+				{
+					this.OnStudentNameChanging(value);
+					this.SendPropertyChanging();
+					this._StudentName = value;
+					this.SendPropertyChanged("StudentName");
+					this.OnStudentNameChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FatherName", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
+		public string FatherName
+		{
+			get
+			{
+				return this._FatherName;
+			}
+			set
+			{
+				if ((this._FatherName != value))
+				{
+					this.OnFatherNameChanging(value);
+					this.SendPropertyChanging();
+					this._FatherName = value;
+					this.SendPropertyChanged("FatherName");
+					this.OnFatherNameChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Email", DbType="VarChar(50)")]
+		public string Email
+		{
+			get
+			{
+				return this._Email;
+			}
+			set
+			{
+				if ((this._Email != value))
+				{
+					this.OnEmailChanging(value);
+					this.SendPropertyChanging();
+					this._Email = value;
+					this.SendPropertyChanged("Email");
+					this.OnEmailChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Address", DbType="VarChar(50)")]
+		public string Address
+		{
+			get
+			{
+				return this._Address;
+			}
+			set
+			{
+				if ((this._Address != value))
+				{
+					this.OnAddressChanging(value);
+					this.SendPropertyChanging();
+					this._Address = value;
+					this.SendPropertyChanged("Address");
+					this.OnAddressChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MobileNumber", DbType="VarChar(50)")]
+		public string MobileNumber
+		{
+			get
+			{
+				return this._MobileNumber;
+			}
+			set
+			{
+				if ((this._MobileNumber != value))
+				{
+					this.OnMobileNumberChanging(value);
+					this.SendPropertyChanging();
+					this._MobileNumber = value;
+					this.SendPropertyChanged("MobileNumber");
+					this.OnMobileNumberChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Department", DbType="Int NOT NULL")]
+		public int Department
+		{
+			get
+			{
+				return this._Department;
+			}
+			set
+			{
+				if ((this._Department != value))
+				{
+					if (this._Department1.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnDepartmentChanging(value);
+					this.SendPropertyChanging();
+					this._Department = value;
+					this.SendPropertyChanged("Department");
+					this.OnDepartmentChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Program", DbType="VarChar(50)")]
+		public string Program
+		{
+			get
+			{
+				return this._Program;
+			}
+			set
+			{
+				if ((this._Program != value))
+				{
+					this.OnProgramChanging(value);
+					this.SendPropertyChanging();
+					this._Program = value;
+					this.SendPropertyChanged("Program");
+					this.OnProgramChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Semester", DbType="VarChar(50)")]
+		public string Semester
+		{
+			get
+			{
+				return this._Semester;
+			}
+			set
+			{
+				if ((this._Semester != value))
+				{
+					this.OnSemesterChanging(value);
+					this.SendPropertyChanging();
+					this._Semester = value;
+					this.SendPropertyChanged("Semester");
+					this.OnSemesterChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SupportingProgram", DbType="VarChar(50)")]
+		public string SupportingProgram
+		{
+			get
+			{
+				return this._SupportingProgram;
+			}
+			set
+			{
+				if ((this._SupportingProgram != value))
+				{
+					this.OnSupportingProgramChanging(value);
+					this.SendPropertyChanging();
+					this._SupportingProgram = value;
+					this.SendPropertyChanged("SupportingProgram");
+					this.OnSupportingProgramChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BloodGroup", DbType="VarChar(50)")]
+		public string BloodGroup
+		{
+			get
+			{
+				return this._BloodGroup;
+			}
+			set
+			{
+				if ((this._BloodGroup != value))
+				{
+					this.OnBloodGroupChanging(value);
+					this.SendPropertyChanging();
+					this._BloodGroup = value;
+					this.SendPropertyChanged("BloodGroup");
+					this.OnBloodGroupChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_UserName", DbType="VarChar(50)")]
+		public string UserName
+		{
+			get
+			{
+				return this._UserName;
+			}
+			set
+			{
+				if ((this._UserName != value))
+				{
+					this.OnUserNameChanging(value);
+					this.SendPropertyChanging();
+					this._UserName = value;
+					this.SendPropertyChanged("UserName");
+					this.OnUserNameChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Password", DbType="VarChar(50)")]
+		public string Password
+		{
+			get
+			{
+				return this._Password;
+			}
+			set
+			{
+				if ((this._Password != value))
+				{
+					this.OnPasswordChanging(value);
+					this.SendPropertyChanging();
+					this._Password = value;
+					this.SendPropertyChanged("Password");
+					this.OnPasswordChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Student_SurveyAnswer", Storage="_SurveyAnswers", ThisKey="StudentId", OtherKey="Student")]
+		public EntitySet<SurveyAnswer> SurveyAnswers
+		{
+			get
+			{
+				return this._SurveyAnswers;
+			}
+			set
+			{
+				this._SurveyAnswers.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Department_Student", Storage="_Department1", ThisKey="Department", OtherKey="DepartmentId", IsForeignKey=true)]
+		public Department Department1
+		{
+			get
+			{
+				return this._Department1.Entity;
+			}
+			set
+			{
+				Department previousValue = this._Department1.Entity;
+				if (((previousValue != value) 
+							|| (this._Department1.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Department1.Entity = null;
+						previousValue.Students.Remove(this);
+					}
+					this._Department1.Entity = value;
+					if ((value != null))
+					{
+						value.Students.Add(this);
+						this._Department = value.DepartmentId;
+					}
+					else
+					{
+						this._Department = default(int);
+					}
+					this.SendPropertyChanged("Department1");
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+		
+		private void attach_SurveyAnswers(SurveyAnswer entity)
+		{
+			this.SendPropertyChanging();
+			entity.Student1 = this;
+		}
+		
+		private void detach_SurveyAnswers(SurveyAnswer entity)
+		{
+			this.SendPropertyChanging();
+			entity.Student1 = null;
 		}
 	}
 	
@@ -1835,6 +2054,120 @@ namespace FJWU_StudentSurvey
 		{
 			this.SendPropertyChanging();
 			entity.SurveyQuestion1 = null;
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Teachers")]
+	public partial class Teacher : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _TeacherId;
+		
+		private string _TeacherName;
+		
+		private EntitySet<Survey> _Surveys;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnTeacherIdChanging(int value);
+    partial void OnTeacherIdChanged();
+    partial void OnTeacherNameChanging(string value);
+    partial void OnTeacherNameChanged();
+    #endregion
+		
+		public Teacher()
+		{
+			this._Surveys = new EntitySet<Survey>(new Action<Survey>(this.attach_Surveys), new Action<Survey>(this.detach_Surveys));
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TeacherId", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int TeacherId
+		{
+			get
+			{
+				return this._TeacherId;
+			}
+			set
+			{
+				if ((this._TeacherId != value))
+				{
+					this.OnTeacherIdChanging(value);
+					this.SendPropertyChanging();
+					this._TeacherId = value;
+					this.SendPropertyChanged("TeacherId");
+					this.OnTeacherIdChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TeacherName", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
+		public string TeacherName
+		{
+			get
+			{
+				return this._TeacherName;
+			}
+			set
+			{
+				if ((this._TeacherName != value))
+				{
+					this.OnTeacherNameChanging(value);
+					this.SendPropertyChanging();
+					this._TeacherName = value;
+					this.SendPropertyChanged("TeacherName");
+					this.OnTeacherNameChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Teacher_Survey", Storage="_Surveys", ThisKey="TeacherId", OtherKey="TeacherId")]
+		public EntitySet<Survey> Surveys
+		{
+			get
+			{
+				return this._Surveys;
+			}
+			set
+			{
+				this._Surveys.Assign(value);
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+		
+		private void attach_Surveys(Survey entity)
+		{
+			this.SendPropertyChanging();
+			entity.Teacher = this;
+		}
+		
+		private void detach_Surveys(Survey entity)
+		{
+			this.SendPropertyChanging();
+			entity.Teacher = null;
 		}
 	}
 }
