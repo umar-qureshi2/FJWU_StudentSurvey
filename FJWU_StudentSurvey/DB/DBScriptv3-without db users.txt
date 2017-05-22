@@ -4,11 +4,11 @@ GO
 /****** Object:  Database [FJWU_StudentSurvey]    Script Date: 5/21/2017 2:18:32 PM ******/
 DROP DATABASE [FJWU_StudentSurvey]
 GO
-
 USE [master]
 GO
-/****** Object:  Database [FJWU_StudentSurvey]    Script Date: 5/21/2017 3:54:02 PM ******/
+/****** Object:  Database [FJWU_StudentSurvey]    Script Date: 5/22/2017 11:47:27 PM ******/
 CREATE DATABASE [FJWU_StudentSurvey]
+
 GO
 ALTER DATABASE [FJWU_StudentSurvey] SET ANSI_NULL_DEFAULT OFF 
 GO
@@ -70,7 +70,7 @@ ALTER DATABASE [FJWU_StudentSurvey] SET TARGET_RECOVERY_TIME = 0 SECONDS
 GO
 USE [FJWU_StudentSurvey]
 GO
-/****** Object:  Table [dbo].[AnswerOptions]    Script Date: 5/21/2017 3:54:02 PM ******/
+/****** Object:  Table [dbo].[AnswerOptions]    Script Date: 5/22/2017 11:47:27 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -88,7 +88,7 @@ CREATE TABLE [dbo].[AnswerOptions](
 GO
 SET ANSI_PADDING OFF
 GO
-/****** Object:  Table [dbo].[ApplicationUsers]    Script Date: 5/21/2017 3:54:02 PM ******/
+/****** Object:  Table [dbo].[ApplicationUsers]    Script Date: 5/22/2017 11:47:27 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -110,7 +110,7 @@ CREATE TABLE [dbo].[ApplicationUsers](
 GO
 SET ANSI_PADDING OFF
 GO
-/****** Object:  Table [dbo].[Courses]    Script Date: 5/21/2017 3:54:02 PM ******/
+/****** Object:  Table [dbo].[Courses]    Script Date: 5/22/2017 11:47:27 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -131,7 +131,7 @@ CREATE TABLE [dbo].[Courses](
 GO
 SET ANSI_PADDING OFF
 GO
-/****** Object:  Table [dbo].[Department]    Script Date: 5/21/2017 3:54:02 PM ******/
+/****** Object:  Table [dbo].[Department]    Script Date: 5/22/2017 11:47:27 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -150,7 +150,7 @@ CREATE TABLE [dbo].[Department](
 GO
 SET ANSI_PADDING OFF
 GO
-/****** Object:  Table [dbo].[Questions]    Script Date: 5/21/2017 3:54:02 PM ******/
+/****** Object:  Table [dbo].[Questions]    Script Date: 5/22/2017 11:47:27 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -159,7 +159,7 @@ SET ANSI_PADDING ON
 GO
 CREATE TABLE [dbo].[Questions](
 	[QuestionId] [int] IDENTITY(1,1) NOT NULL,
-	[QuestionText] [varchar](50) NULL,
+	[QuestionText] [varchar](500) NULL,
 	[QuestionType] [int] NULL,
  CONSTRAINT [PK_Questions] PRIMARY KEY CLUSTERED 
 (
@@ -170,7 +170,7 @@ CREATE TABLE [dbo].[Questions](
 GO
 SET ANSI_PADDING OFF
 GO
-/****** Object:  Table [dbo].[Students]    Script Date: 5/21/2017 3:54:02 PM ******/
+/****** Object:  Table [dbo].[Students]    Script Date: 5/22/2017 11:47:27 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -200,7 +200,7 @@ CREATE TABLE [dbo].[Students](
 GO
 SET ANSI_PADDING OFF
 GO
-/****** Object:  Table [dbo].[Survey]    Script Date: 5/21/2017 3:54:02 PM ******/
+/****** Object:  Table [dbo].[Survey]    Script Date: 5/22/2017 11:47:27 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -223,7 +223,7 @@ CREATE TABLE [dbo].[Survey](
 GO
 SET ANSI_PADDING OFF
 GO
-/****** Object:  Table [dbo].[SurveyAnswers]    Script Date: 5/21/2017 3:54:02 PM ******/
+/****** Object:  Table [dbo].[SurveyAnswers]    Script Date: 5/22/2017 11:47:27 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -244,7 +244,7 @@ CREATE TABLE [dbo].[SurveyAnswers](
 GO
 SET ANSI_PADDING OFF
 GO
-/****** Object:  Table [dbo].[SurveyQuestions]    Script Date: 5/21/2017 3:54:02 PM ******/
+/****** Object:  Table [dbo].[SurveyQuestions]    Script Date: 5/22/2017 11:47:27 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -260,7 +260,7 @@ CREATE TABLE [dbo].[SurveyQuestions](
 ) ON [PRIMARY]
 
 GO
-/****** Object:  Table [dbo].[Teachers]    Script Date: 5/21/2017 3:54:02 PM ******/
+/****** Object:  Table [dbo].[Teachers]    Script Date: 5/22/2017 11:47:27 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -304,12 +304,54 @@ INSERT [dbo].[Department] ([DepartmentId], [Name]) VALUES (1, N'Computer Science
 GO
 INSERT [dbo].[Department] ([DepartmentId], [Name]) VALUES (2, N'Software Engineering')
 GO
+INSERT [dbo].[Department] ([DepartmentId], [Name]) VALUES (3, N'Behavioral Sciences')
+GO
+INSERT [dbo].[Department] ([DepartmentId], [Name]) VALUES (4, N'Business Administration')
+GO
+INSERT [dbo].[Department] ([DepartmentId], [Name]) VALUES (5, N'Communication and Media Studies')
+GO
+INSERT [dbo].[Department] ([DepartmentId], [Name]) VALUES (6, N'Computer Arts')
+GO
+INSERT [dbo].[Department] ([DepartmentId], [Name]) VALUES (7, N'Defense and Diplomatic Studies')
+GO
+INSERT [dbo].[Department] ([DepartmentId], [Name]) VALUES (8, N'Economics')
+GO
+INSERT [dbo].[Department] ([DepartmentId], [Name]) VALUES (9, N'Education')
+GO
+INSERT [dbo].[Department] ([DepartmentId], [Name]) VALUES (11, N'Environmental Sciences')
+GO
+INSERT [dbo].[Department] ([DepartmentId], [Name]) VALUES (12, N'Fine Arts')
+GO
+INSERT [dbo].[Department] ([DepartmentId], [Name]) VALUES (13, N'Gender Studies')
+GO
+INSERT [dbo].[Department] ([DepartmentId], [Name]) VALUES (14, N'Islamic Studies')
+GO
+INSERT [dbo].[Department] ([DepartmentId], [Name]) VALUES (15, N'Mathematical Sciences')
+GO
+INSERT [dbo].[Department] ([DepartmentId], [Name]) VALUES (16, N'Public Administration')
+GO
+INSERT [dbo].[Department] ([DepartmentId], [Name]) VALUES (17, N'Urdu')
+GO
+INSERT [dbo].[Department] ([DepartmentId], [Name]) VALUES (18, N'Physics')
+GO
+INSERT [dbo].[Department] ([DepartmentId], [Name]) VALUES (19, N'Commerce')
+GO
+INSERT [dbo].[Department] ([DepartmentId], [Name]) VALUES (20, N'Law')
+GO
+INSERT [dbo].[Department] ([DepartmentId], [Name]) VALUES (21, N'Electronic Engineering')
+GO
+INSERT [dbo].[Department] ([DepartmentId], [Name]) VALUES (24, N'Anthropology')
+GO
 SET IDENTITY_INSERT [dbo].[Department] OFF
 GO
 SET IDENTITY_INSERT [dbo].[Questions] ON 
 
 GO
-INSERT [dbo].[Questions] ([QuestionId], [QuestionText], [QuestionType]) VALUES (1, N'SampleQuestion', 0)
+INSERT [dbo].[Questions] ([QuestionId], [QuestionText], [QuestionType]) VALUES (1, N'Course objectives were clear.', 0)
+GO
+INSERT [dbo].[Questions] ([QuestionId], [QuestionText], [QuestionType]) VALUES (2, N'Workload was managable', 0)
+GO
+INSERT [dbo].[Questions] ([QuestionId], [QuestionText], [QuestionType]) VALUES (3, N'a very very long questiona very very long questiona very very long questiona very very long questiona very very long questiona very very long questiona very very long questiona very very long questiona very very long questiona very very long questiona very very long questiona very very long questiona very very long questiona very very long questiona very very long questiona very very long questiona very very long question', 0)
 GO
 SET IDENTITY_INSERT [dbo].[Questions] OFF
 GO
@@ -330,7 +372,25 @@ GO
 SET IDENTITY_INSERT [dbo].[Teachers] ON 
 
 GO
-INSERT [dbo].[Teachers] ([TeacherId], [TeacherName]) VALUES (1, N'Teacher 1')
+INSERT [dbo].[Teachers] ([TeacherId], [TeacherName]) VALUES (1, N'Miss Umay Kulsoom')
+GO
+INSERT [dbo].[Teachers] ([TeacherId], [TeacherName]) VALUES (2, N'Sir Nadeem Fakhar')
+GO
+INSERT [dbo].[Teachers] ([TeacherId], [TeacherName]) VALUES (3, N'Dr. Nargis Bibi')
+GO
+INSERT [dbo].[Teachers] ([TeacherId], [TeacherName]) VALUES (4, N'Miss Madiha Wahid ')
+GO
+INSERT [dbo].[Teachers] ([TeacherId], [TeacherName]) VALUES (5, N'Miss Bushra Sikander')
+GO
+INSERT [dbo].[Teachers] ([TeacherId], [TeacherName]) VALUES (6, N'Miss Andaleeb Yusuf')
+GO
+INSERT [dbo].[Teachers] ([TeacherId], [TeacherName]) VALUES (7, N'Miss Nausheen Khurram')
+GO
+INSERT [dbo].[Teachers] ([TeacherId], [TeacherName]) VALUES (8, N'Miss Mehreen Shehzadi')
+GO
+INSERT [dbo].[Teachers] ([TeacherId], [TeacherName]) VALUES (9, N'Miss Fakeeha Jafri')
+GO
+INSERT [dbo].[Teachers] ([TeacherId], [TeacherName]) VALUES (10, N'Dr. Muhammad Jehanzaib')
 GO
 SET IDENTITY_INSERT [dbo].[Teachers] OFF
 GO
