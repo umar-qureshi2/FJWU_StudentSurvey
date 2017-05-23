@@ -1,0 +1,5 @@
+﻿fix for strign fields in db so data does not get truncated
+student registration form
+student report in csv
+student response report in dashboard
+access limitations

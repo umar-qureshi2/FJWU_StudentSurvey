@@ -821,6 +821,7 @@
     <Content Include="CRUD\SurveyAdmin.aspx" />
     <Content Include="CRUD\SurveyQuestionAdmin.aspx" />
     <Content Include="CRUD\CrudStudents.aspx" />
+    <Content Include="_Misc\TaskList.txt" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
