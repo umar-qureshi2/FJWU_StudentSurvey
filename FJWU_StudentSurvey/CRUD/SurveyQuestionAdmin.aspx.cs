@@ -13,5 +13,28 @@ namespace FJWU_StudentSurvey
         {
 
         }
+
+        FJWUSurveyDBDataContext db = new FJWUSurveyDBDataContext();
+        protected void AddSurveyQuestionButton_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                var survey = int.Parse(SurveyList.SelectedValue);
+                var question = int.Parse(QuestionsList.SelectedValue);
+                SurveyQuestion temp = new FJWU_StudentSurvey.SurveyQuestion()
+                {
+                    Question = question,
+                    Survey = survey
+                };
+                db.SurveyQuestions.InsertOnSubmit(temp);
+                db.SubmitChanges();
+
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
     }
 }

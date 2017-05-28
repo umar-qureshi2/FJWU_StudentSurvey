@@ -40,12 +40,48 @@ namespace FJWU_StudentSurvey {
         protected global::System.Web.UI.WebControls.Literal warningtext;
         
         /// <summary>
-        /// SurveyQuestionForm control.
+        /// SurveyList control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.FormView SurveyQuestionForm;
+        protected global::System.Web.UI.WebControls.DropDownList SurveyList;
+        
+        /// <summary>
+        /// SurveyListSource control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.SqlDataSource SurveyListSource;
+        
+        /// <summary>
+        /// QuestionsList control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList QuestionsList;
+        
+        /// <summary>
+        /// QuestionsSource control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.SqlDataSource QuestionsSource;
+        
+        /// <summary>
+        /// AddSurveyQuestionButton control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button AddSurveyQuestionButton;
     }
 }

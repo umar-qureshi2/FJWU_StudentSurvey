@@ -40,12 +40,57 @@ namespace FJWU_StudentSurvey {
         protected global::System.Web.UI.WebControls.Literal warningtext;
         
         /// <summary>
-        /// SurveyAdminForm control.
+        /// SurveyName control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.FormView SurveyAdminForm;
+        protected global::System.Web.UI.WebControls.TextBox SurveyName;
+        
+        /// <summary>
+        /// CoursesList control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList CoursesList;
+        
+        /// <summary>
+        /// CoursesDataSource control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.SqlDataSource CoursesDataSource;
+        
+        /// <summary>
+        /// TeachersList control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList TeachersList;
+        
+        /// <summary>
+        /// TeachersSource control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.SqlDataSource TeachersSource;
+        
+        /// <summary>
+        /// CreateSurveyButton control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button CreateSurveyButton;
     }
 }

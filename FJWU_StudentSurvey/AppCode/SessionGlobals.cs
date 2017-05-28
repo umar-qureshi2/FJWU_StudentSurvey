@@ -18,5 +18,19 @@ namespace FJWU_StudentSurvey.AppCode
                 Session["loggedIn"] = value;
             }
         }
+
+        public string IsAdmin
+        {
+            get
+            {
+                return Session["isadmin"] as string;
+            }
+            set
+            {
+                Session["isadmin"] = value;
+
+            }
+        }
     }
+
 }

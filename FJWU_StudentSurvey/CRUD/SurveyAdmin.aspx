@@ -28,7 +28,7 @@
                 <div class="panel-body panel-body-table dataTables_wrapper no-footer">
 
 
-                    <asp:GridView  CssClass="table datatable table-hover" ID="SurveyGrid" runat="server" AutoGenerateColumns="False" DataKeyNames="SurveyId" DataSourceID="SurveySource" AllowPaging="True" AllowSorting="True">
+                    <asp:GridView CssClass="table datatable table-hover" ID="SurveyGrid" runat="server" AutoGenerateColumns="False" DataKeyNames="SurveyId" DataSourceID="SurveySource" AllowPaging="True" AllowSorting="True">
                         <Columns>
                             <asp:CommandField ShowEditButton="True" ShowDeleteButton="True" ShowSelectButton="True"></asp:CommandField>
                             <asp:BoundField DataField="SurveyId" HeaderText="SurveyId" ReadOnly="True" InsertVisible="False" SortExpression="SurveyId"></asp:BoundField>
@@ -85,9 +85,19 @@
                 </div>
                 <div class="panel-body">
                     <strong class="error" style="color: red;">
-                        <asp:Literal ID="warningtext" runat="server"></asp:Literal></strong>
+                        <asp:Literal ID="warningtext" runat="server"></asp:Literal></strong><br />
+                    <label class="control-label">Survey Name</label>
+                    <asp:TextBox ID="SurveyName" runat="server" placeholder="use descriptive survey name" CssClass="form-control"></asp:TextBox><br />
+                    <label class="control-label">Select Course</label>
+                    <asp:DropDownList CssClass="btn dropdown-toggle selectpicker btn-default size14" ID="CoursesList" runat="server" DataSourceID="CoursesDataSource" DataTextField="CourseName" DataValueField="CourseID"></asp:DropDownList>
+                    <br />
+                    <asp:SqlDataSource runat="server" ID="CoursesDataSource" ConnectionString='<%$ ConnectionStrings:FJWU_StudentSurveyConnectionString %>' SelectCommand="SELECT [CourseID],[CourseName] + ' - ' +[CourseSession] + ' - ' + CONVERT(varchar(10), [DeptId]) AS CourseName FROM [Courses]"></asp:SqlDataSource>
+                    <label class="control-label">Select Teacher</label>
 
-                    <asp:FormView ID="SurveyAdminForm" runat="server" DataSourceID="SurveySource" AllowPaging="True"></asp:FormView>
+                    <asp:DropDownList CssClass="btn dropdown-toggle selectpicker btn-default size14" ID="TeachersList" runat="server" DataSourceID="TeachersSource" DataTextField="TeacherName" DataValueField="TeacherId"></asp:DropDownList>
+                    <asp:SqlDataSource runat="server" ID="TeachersSource" ConnectionString='<%$ ConnectionStrings:FJWU_StudentSurveyConnectionString %>' SelectCommand="SELECT * FROM [Teachers]"></asp:SqlDataSource>
+                    <br />
+                    <asp:Button ID="CreateSurveyButton" runat="server" Text="Create Survey" OnClick="CreateSurveyButton_Click" CssClass="btn btn-success size14"/>
                 </div>
             </div>
         </div>

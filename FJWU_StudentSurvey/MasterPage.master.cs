@@ -7,19 +7,25 @@ using System.Web.Security;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Linq;
+using FJWU_StudentSurvey.AppCode;
 
 public partial class MasterPage : System.Web.UI.MasterPage
 {
     private const string AntiXsrfTokenKey = "__AntiXsrfToken";
     private const string AntiXsrfUserNameKey = "__AntiXsrfUserName";
     private string _antiXsrfTokenValue;
+    SessionGlobals sg = new SessionGlobals();
 
     protected void Page_Init(object sender, EventArgs e)
     {
+        if (sg.LoggedIn == null)
+        {
+            Response.Redirect("~/LoginSignup.aspx");
+        }
+        
         if (Session["Globals"] == null)
         {
             //Session["Globals"] = new Globals();
-            Session.Abandon();
             //Response.Redirect(Page.ResolveUrl("~/Login.aspx"));
         }
         // The code below helps to protect against XSRF attacks
@@ -72,13 +78,13 @@ public partial class MasterPage : System.Web.UI.MasterPage
     }
     protected void Page_Load(object sender, EventArgs e)
     {
-        if (Session["Globals"] == null)
-        {
-            //Session["Globals"] = new Globals();
-            Session.Abandon();
-            //Response.Redirect(Page.ResolveUrl("~/Login.aspx"));
-        }
-
+        //if (Session["Globals"] == null)
+        //{
+        //    //Session["Globals"] = new Globals();
+        //    Session.Abandon();
+        //    //Response.Redirect(Page.ResolveUrl("~/Login.aspx"));
+        //}
+        
         //IDPDataClassesDataContext dbcontext = new IDPDataClassesDataContext();
         //Globals globals = new Globals();
         //var users = dbcontext.IDPUsersTables.Where(x => x.UserID == globals.Loggedin_ID);

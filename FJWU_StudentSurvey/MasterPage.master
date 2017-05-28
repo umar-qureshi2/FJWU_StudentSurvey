@@ -18,9 +18,9 @@
         .size14 {
             font-size: 14px !important;
         }
-        .SurveyAnswer > label
-        {
-            padding-left:5px;
+
+        .SurveyAnswer > label {
+            padding-left: 5px;
         }
     </style>
     <asp:ContentPlaceHolder ID="head" runat="server">
@@ -48,7 +48,8 @@
                                 </div>
                                 <div class="profile-data">
                                     <div class="profile-data-name">
-                                        <asp:Literal runat="server" ID="loggedinname"></asp:Literal></div>
+                                        <asp:Literal runat="server" ID="loggedinname"></asp:Literal>
+                                    </div>
                                     <div class="profile-data-title">Asma Saleem</div>
                                 </div>
                             </div>
@@ -58,52 +59,40 @@
                             <a href="<%= Page.ResolveUrl("~/StudentHome.aspx") %>"><span class="fa fa-desktop"></span><span class="xn-text">Student Home</span></a>
                         </li>
                         <li class="active">
-                            <a href="<%= Page.ResolveUrl("~/CRUD/CoursesAdmin.aspx") %>"><span class="fa fa-desktop"></span><span class="xn-text">Courses</span></a>
+                            <a href="<%= Page.ResolveUrl("~/LoginSignup.aspx") %>"><span class="fa fa-desktop"></span><span class="xn-text">Logout</span></a>
                         </li>
-                        <li class="active">
-                            <a href="<%= Page.ResolveUrl("~/CRUD/CrudApplicationUser.aspx") %>"><span class="fa fa-desktop"></span><span class="xn-text">Create Login</span></a>
-                        </li>
-                        <li class="active">
-                            <a href="<%= Page.ResolveUrl("~/CRUD/CrudStudents.aspx") %>"><span class="fa fa-desktop"></span><span class="xn-text">Students</span></a>
-                        </li>
-                        <li class="active">
-                            <a href="<%= Page.ResolveUrl("~/CRUD/DepartmentAdmin.aspx") %>"><span class="fa fa-desktop"></span><span class="xn-text">Departments</span></a>
-                        </li>
-                        <li class="active">
-                            <a href="<%= Page.ResolveUrl("~/CRUD/QuestionAdmin.aspx") %>"><span class="fa fa-desktop"></span><span class="xn-text">Questions</span></a>
-                        </li>
-                        <li class="active">
-                            <a href="<%= Page.ResolveUrl("~/CRUD/SurveyAdmin.aspx") %>"><span class="fa fa-desktop"></span><span class="xn-text">Surveys</span></a>
-                        </li>
-                        <li class="active">
-                            <a href="<%= Page.ResolveUrl("~/CRUD/SurveyQuestionAdmin.aspx") %>"><span class="fa fa-desktop"></span><span class="xn-text">Survey Questions</span></a>
-                        </li>
-                        <li class="active">
-                            <a href="<%= Page.ResolveUrl("~/CRUD/TeachersAdmin.aspx") %>"><span class="fa fa-desktop"></span><span class="xn-text">Teachers</span></a>
-                        </li>
-                        <li class="active">
-                            <a href="<%= Page.ResolveUrl("~/Registration.aspx") %>"><span class="fa fa-desktop"></span><span class="xn-text">Registration </span></a>
-                        </li>
-                        <li class="active">
-                            <a href="<%= Page.ResolveUrl("~/Login.aspx") %>"><span class="fa fa-desktop"></span><span class="xn-text">Login </span></a>
-                        </li>
-                        <%--<li class="active">
-                            <a href="<%= Page.ResolveUrl("~/AddArea.aspx") %>"><span class="fa fa-desktop"></span><span class="xn-text">Add New Area</span></a>
-                        </li>
-                        <li class="xn-title">Admin</li>
-                        <li class="active">
-                            <a href="<%= Page.ResolveUrl("~/AdminSignup.aspx") %>"><span class="fa fa-desktop"></span><span class="xn-text">New Admin</span></a>
-                        </li>
-                        <li class="active">
-                            <a href="<%= Page.ResolveUrl("~/ChangePassword.aspx") %>"><span class="fa fa-desktop"></span><span class="xn-text">Change Pasword</span></a>
-                        </li>
-                        <li class="active">
-                            <a href="<%= Page.ResolveUrl("~/ChangeDefaultCard.aspx") %>"><span class="fa fa-desktop"></span><span class="xn-text">Change Default Card</span></a>
-                        </li>
-                        <li class="active">
-                            <a href="<%= Page.ResolveUrl("~/AutoApprove.aspx") %>"><span class="fa fa-desktop"></span><span class="xn-text">Auto Approve All</span></a>
-                        </li>--%>
                     </ul>
+                    <br />
+                   <div style="<%=Session["isadmin"].ToString()  %>">
+                        <ul class="x-navigation">
+                            <li class="active">
+                                <a href="<%= Page.ResolveUrl("~/CRUD/CoursesAdmin.aspx") %>"><span class="fa fa-desktop"></span><span class="xn-text">Courses</span></a>
+                            </li>
+                            <li class="active">
+                                <a href="<%= Page.ResolveUrl("~/CRUD/CrudApplicationUser.aspx") %>"><span class="fa fa-desktop"></span><span class="xn-text">Create Login</span></a>
+                            </li>
+                            <li class="active">
+                                <a href="<%= Page.ResolveUrl("~/CRUD/CrudStudents.aspx") %>"><span class="fa fa-desktop"></span><span class="xn-text">Students</span></a>
+                            </li>
+                            <li class="active">
+                                <a href="<%= Page.ResolveUrl("~/CRUD/DepartmentAdmin.aspx") %>"><span class="fa fa-desktop"></span><span class="xn-text">Departments</span></a>
+                            </li>
+                            <li class="active">
+                                <a href="<%= Page.ResolveUrl("~/CRUD/QuestionAdmin.aspx") %>"><span class="fa fa-desktop"></span><span class="xn-text">Questions</span></a>
+                            </li>
+                            <li class="active">
+                                <a href="<%= Page.ResolveUrl("~/CRUD/SurveyAdmin.aspx") %>"><span class="fa fa-desktop"></span><span class="xn-text">Surveys</span></a>
+                            </li>
+                            <li class="active">
+                                <a href="<%= Page.ResolveUrl("~/CRUD/SurveyQuestionAdmin.aspx") %>"><span class="fa fa-desktop"></span><span class="xn-text">Survey Questions</span></a>
+                            </li>
+                            <li class="active">
+                                <a href="<%= Page.ResolveUrl("~/CRUD/TeachersAdmin.aspx") %>"><span class="fa fa-desktop"></span><span class="xn-text">Teachers</span></a>
+                            </li>
+                            
+                        </ul>
+                    </div>
+
                     <!-- END X-NAVIGATION -->
                 </div>
                 <!-- END PAGE SIDEBAR -->
@@ -197,7 +186,7 @@
     <!-- END THIS PAGE PLUGINS-->
 
     <!-- START TEMPLATE -->
-    <script type="text/javascript" src="<%= Page.ResolveUrl("~/html/js/settings.js") %>"></script>
+    <%--<script type="text/javascript" src="<%= Page.ResolveUrl("~/html/js/settings.js") %>"></script>--%>
 
     <script type="text/javascript" src="<%= Page.ResolveUrl("~/html/js/plugins.js") %>"></script>
     <script type="text/javascript" src="<%= Page.ResolveUrl("~/html/js/actions.js") %>"></script>

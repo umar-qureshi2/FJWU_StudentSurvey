@@ -28,7 +28,7 @@
                 <div class="panel-body panel-body-table dataTables_wrapper no-footer">
 
 
-                    <asp:GridView  CssClass="table datatable table-hover" ID="SurveyQuestionGrid" runat="server" AutoGenerateColumns="False" DataKeyNames="SurveyQuestion" DataSourceID="SurveyQuestionSource" AllowPaging="True" AllowSorting="True">
+                    <asp:GridView CssClass="table datatable table-hover" ID="SurveyQuestionGrid" runat="server" AutoGenerateColumns="False" DataKeyNames="SurveyQuestion" DataSourceID="SurveyQuestionSource" AllowPaging="True" AllowSorting="True">
                         <Columns>
                             <asp:CommandField ShowEditButton="True" ShowDeleteButton="True" ShowSelectButton="True"></asp:CommandField>
                             <asp:BoundField DataField="SurveyQuestion" HeaderText="SurveyQuestion" ReadOnly="True" InsertVisible="False" SortExpression="SurveyQuestion"></asp:BoundField>
@@ -69,9 +69,24 @@
                 </div>
                 <div class="panel-body">
                     <strong class="error" style="color: red;">
-                        <asp:Literal ID="warningtext" runat="server"></asp:Literal></strong>
+                        <asp:Literal ID="warningtext" runat="server"></asp:Literal></strong><br />
+                    <label class="control-label">Survey Questions</label>
 
-                    <asp:FormView ID="SurveyQuestionForm" runat="server" DataSourceID="SurveyQuestionSource" AllowPaging="True"></asp:FormView>
+                    <asp:DropDownList ID="SurveyList" CssClass="btn dropdown-toggle selectpicker btn-default size14" runat="server" DataSourceID="SurveyListSource" DataTextField="DisplayName" DataValueField="SurveyId"></asp:DropDownList>
+                    <asp:SqlDataSource runat="server" ID="SurveyListSource" ConnectionString='<%$ ConnectionStrings:FJWU_StudentSurveyConnectionString %>' SelectCommand="SELECT * FROM [Survey]"></asp:SqlDataSource>
+
+                    <asp:DropDownList ID="QuestionsList" 
+                        CssClass="btn dropdown-toggle selectpicker btn-default size14"  runat="server" 
+                        DataSourceID="QuestionsSource" DataTextField="QuestionText" DataValueField="QuestionId"></asp:DropDownList>
+
+                    <asp:SqlDataSource runat="server" ID="QuestionsSource"
+                        ConnectionString='<%$ ConnectionStrings:FJWU_StudentSurveyConnectionString %>'
+                        SelectCommand="SELECT [QuestionId], [QuestionText] + ' - ' + Convert(varchar(10),[QuestionType]) AS QuestionText FROM [Questions]"></asp:SqlDataSource>
+                    <br />
+                    <asp:Button ID="AddSurveyQuestionButton" runat="server" 
+                        Text="Add Question" 
+                        OnClick="AddSurveyQuestionButton_Click" CssClass="btn btn-success size14"/>
+                
                 </div>
             </div>
         </div>

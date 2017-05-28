@@ -113,6 +113,16 @@
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\Site.css" />
+    <Content Include="css\home.jpg" />
+    <Content Include="css\material-icon.css">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="css\opensans.css">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="css\style.css">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="DB\DbScriptv1.txt" />
     <Content Include="DB\DBScriptv3-without db users.txt" />
     <Content Include="DB\DBScriptv2-without db users.txt" />
@@ -783,7 +793,9 @@
     <Content Include="html\ui-tour.html" />
     <Content Include="html\ui-typography.html" />
     <Content Include="html\ui-widgets.html" />
+    <Content Include="js\index.js" />
     <Content Include="Login.aspx" />
+    <Content Include="LoginSignup.aspx" />
     <Content Include="StudentHome.aspx" />
     <Content Include="CRUD\CrudApplicationUser.aspx" />
     <Content Include="html\opt2\assets\sass\lbd\mixins\_vendor-prefixes.scss" />
@@ -907,6 +919,13 @@
     </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="LoginSignup.aspx.cs">
+      <DependentUpon>LoginSignup.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="LoginSignup.aspx.designer.cs">
+      <DependentUpon>LoginSignup.aspx</DependentUpon>
     </Compile>
     <Compile Include="MasterPage.master.cs">
       <DependentUpon>MasterPage.master</DependentUpon>
