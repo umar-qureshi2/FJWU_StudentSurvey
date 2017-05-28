@@ -30,7 +30,7 @@ namespace FJWU_StudentSurvey
                 db.Surveys.InsertOnSubmit(temp);
                 db.SubmitChanges();
                 warningtext.Text = "Survey Added";
-                //Response.Redirect("~/SurveyAdmin.aspx");                  
+                Response.Write(Request.RawUrl.ToString()); // redirect on itself                  
             }
             catch (Exception)
             {

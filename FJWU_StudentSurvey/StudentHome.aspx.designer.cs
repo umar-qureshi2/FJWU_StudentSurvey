@@ -13,6 +13,24 @@ namespace FJWU_StudentSurvey {
     public partial class StudentHome {
         
         /// <summary>
+        /// SurveyDropDown control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList SurveyDropDown;
+        
+        /// <summary>
+        /// SurveySource control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.SqlDataSource SurveySource;
+        
+        /// <summary>
         /// CoursesList control.
         /// </summary>
         /// <remarks>

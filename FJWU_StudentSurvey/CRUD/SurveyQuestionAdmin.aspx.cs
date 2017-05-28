@@ -28,7 +28,7 @@ namespace FJWU_StudentSurvey
                 };
                 db.SurveyQuestions.InsertOnSubmit(temp);
                 db.SubmitChanges();
-
+                Response.Write(Request.RawUrl.ToString()); // redirect on itself
             }
             catch (Exception)
             {

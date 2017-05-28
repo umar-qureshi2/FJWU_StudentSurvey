@@ -90,12 +90,12 @@ namespace FJWU_StudentSurvey
 
         private void ShowSurvey()
         {
-            int? selectedSurvey = null;
-            if (!string.IsNullOrWhiteSpace(CoursesList.SelectedValue) && !string.IsNullOrWhiteSpace(TeachersList.SelectedValue))
-            {
-                selectedSurvey = db.Surveys.Where(x => x.CourseId == int.Parse(CoursesList.SelectedValue)
-                                                         && x.TeacherId == int.Parse(TeachersList.SelectedValue)).FirstOrDefault()?.SurveyId;
-            }
+            int? selectedSurvey = int.Parse(SurveyDropDown.SelectedValue);;
+            //if (!string.IsNullOrWhiteSpace(CoursesList.SelectedValue) && !string.IsNullOrWhiteSpace(TeachersList.SelectedValue))
+            //{
+            //    selectedSurvey = db.Surveys.Where(x => x.CourseId == int.Parse(CoursesList.SelectedValue)
+            //                                             && x.TeacherId == int.Parse(TeachersList.SelectedValue)).FirstOrDefault()?.SurveyId;
+            //}
             if (selectedSurvey != null)
             {
                 var surveyId = selectedSurvey.Value;
@@ -107,7 +107,8 @@ namespace FJWU_StudentSurvey
                         continue;
                     }
                     var question = LoadControl("~/UserControls/QuestionControl.ascx") as QuestionControl;
-                    question.UpdateQuestion(surveyQuestion.Question1.QuestionText,
+                    question.UpdateQuestion((surveyQuestion.Question1.QuestionType == 0 ? 
+                        "Course: " : "Teacher: " )+surveyQuestion.Question1.QuestionText,
                         $"{surveyQuestion.SurveyQuestion1}",
                         $"{surveyQuestion.SurveyQuestion1}{surveyQuestion.Question}{surveyQuestion.Survey}");
                     QuestionsPanel.Controls.Add(question);
@@ -119,6 +120,14 @@ namespace FJWU_StudentSurvey
         protected void SubmitSurveyBtn_Click(object sender, EventArgs e)
         {
             saveSignaled = true;
+        }
+
+        protected void SurveyDropDown_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            var surveyid = int.Parse(SurveyDropDown.SelectedValue);
+            var survey = db.Surveys.Where(x => x.SurveyId == surveyid).First();
+            CoursesList.SelectedValue = survey.CourseId.ToString();
+            TeachersList.SelectedValue = survey.TeacherId.ToString();
         }
     }
 }
