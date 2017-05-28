@@ -82,6 +82,9 @@
                             <a href="<%= Page.ResolveUrl("~/CRUD/TeachersAdmin.aspx") %>"><span class="fa fa-desktop"></span><span class="xn-text">Teachers</span></a>
                         </li>
                         <li class="active">
+                            <a href="<%= Page.ResolveUrl("~/Registration.aspx") %>"><span class="fa fa-desktop"></span><span class="xn-text">Registration </span></a>
+                        </li>
+                        <li class="active">
                             <a href="<%= Page.ResolveUrl("~/Login.aspx") %>"><span class="fa fa-desktop"></span><span class="xn-text">Login </span></a>
                         </li>
                         <%--<li class="active">

@@ -4,11 +4,11 @@ GO
 /****** Object:  Database [FJWU_StudentSurvey]    Script Date: 5/21/2017 2:18:32 PM ******/
 DROP DATABASE [FJWU_StudentSurvey]
 GO
+
 USE [master]
 GO
-/****** Object:  Database [FJWU_StudentSurvey]    Script Date: 5/22/2017 11:47:27 PM ******/
+/****** Object:  Database [FJWU_StudentSurvey]    Script Date: 5/26/2017 6:22:54 AM ******/
 CREATE DATABASE [FJWU_StudentSurvey]
-
 GO
 ALTER DATABASE [FJWU_StudentSurvey] SET ANSI_NULL_DEFAULT OFF 
 GO
@@ -70,7 +70,7 @@ ALTER DATABASE [FJWU_StudentSurvey] SET TARGET_RECOVERY_TIME = 0 SECONDS
 GO
 USE [FJWU_StudentSurvey]
 GO
-/****** Object:  Table [dbo].[AnswerOptions]    Script Date: 5/22/2017 11:47:27 PM ******/
+/****** Object:  Table [dbo].[AnswerOptions]    Script Date: 5/26/2017 6:22:54 AM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -88,7 +88,7 @@ CREATE TABLE [dbo].[AnswerOptions](
 GO
 SET ANSI_PADDING OFF
 GO
-/****** Object:  Table [dbo].[ApplicationUsers]    Script Date: 5/22/2017 11:47:27 PM ******/
+/****** Object:  Table [dbo].[ApplicationUsers]    Script Date: 5/26/2017 6:22:54 AM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -110,7 +110,7 @@ CREATE TABLE [dbo].[ApplicationUsers](
 GO
 SET ANSI_PADDING OFF
 GO
-/****** Object:  Table [dbo].[Courses]    Script Date: 5/22/2017 11:47:27 PM ******/
+/****** Object:  Table [dbo].[Courses]    Script Date: 5/26/2017 6:22:54 AM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -131,7 +131,7 @@ CREATE TABLE [dbo].[Courses](
 GO
 SET ANSI_PADDING OFF
 GO
-/****** Object:  Table [dbo].[Department]    Script Date: 5/22/2017 11:47:27 PM ******/
+/****** Object:  Table [dbo].[Department]    Script Date: 5/26/2017 6:22:54 AM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -150,7 +150,7 @@ CREATE TABLE [dbo].[Department](
 GO
 SET ANSI_PADDING OFF
 GO
-/****** Object:  Table [dbo].[Questions]    Script Date: 5/22/2017 11:47:27 PM ******/
+/****** Object:  Table [dbo].[Questions]    Script Date: 5/26/2017 6:22:54 AM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -170,7 +170,7 @@ CREATE TABLE [dbo].[Questions](
 GO
 SET ANSI_PADDING OFF
 GO
-/****** Object:  Table [dbo].[Students]    Script Date: 5/22/2017 11:47:27 PM ******/
+/****** Object:  Table [dbo].[Students]    Script Date: 5/26/2017 6:22:54 AM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -182,7 +182,7 @@ CREATE TABLE [dbo].[Students](
 	[StudentName] [varchar](50) NOT NULL,
 	[FatherName] [varchar](50) NOT NULL,
 	[Email] [varchar](50) NULL,
-	[Address] [varchar](50) NULL,
+	[Address] [varchar](500) NULL,
 	[MobileNumber] [varchar](50) NULL,
 	[Department] [int] NOT NULL,
 	[Program] [varchar](50) NULL,
@@ -200,7 +200,7 @@ CREATE TABLE [dbo].[Students](
 GO
 SET ANSI_PADDING OFF
 GO
-/****** Object:  Table [dbo].[Survey]    Script Date: 5/22/2017 11:47:27 PM ******/
+/****** Object:  Table [dbo].[Survey]    Script Date: 5/26/2017 6:22:54 AM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -223,7 +223,7 @@ CREATE TABLE [dbo].[Survey](
 GO
 SET ANSI_PADDING OFF
 GO
-/****** Object:  Table [dbo].[SurveyAnswers]    Script Date: 5/22/2017 11:47:27 PM ******/
+/****** Object:  Table [dbo].[SurveyAnswers]    Script Date: 5/26/2017 6:22:54 AM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -244,7 +244,7 @@ CREATE TABLE [dbo].[SurveyAnswers](
 GO
 SET ANSI_PADDING OFF
 GO
-/****** Object:  Table [dbo].[SurveyQuestions]    Script Date: 5/22/2017 11:47:27 PM ******/
+/****** Object:  Table [dbo].[SurveyQuestions]    Script Date: 5/26/2017 6:22:54 AM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -260,7 +260,7 @@ CREATE TABLE [dbo].[SurveyQuestions](
 ) ON [PRIMARY]
 
 GO
-/****** Object:  Table [dbo].[Teachers]    Script Date: 5/22/2017 11:47:27 PM ******/
+/****** Object:  Table [dbo].[Teachers]    Script Date: 5/26/2017 6:22:54 AM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -283,6 +283,8 @@ SET IDENTITY_INSERT [dbo].[ApplicationUsers] ON
 
 GO
 INSERT [dbo].[ApplicationUsers] ([UserId], [UserName], [Password], [UserMapping], [UserPermission]) VALUES (1000, N'admin', N'admin', NULL, 0)
+GO
+INSERT [dbo].[ApplicationUsers] ([UserId], [UserName], [Password], [UserMapping], [UserPermission]) VALUES (1001, N'ali', N'ali', 1, 1)
 GO
 SET IDENTITY_INSERT [dbo].[ApplicationUsers] OFF
 GO
@@ -354,6 +356,13 @@ GO
 INSERT [dbo].[Questions] ([QuestionId], [QuestionText], [QuestionType]) VALUES (3, N'a very very long questiona very very long questiona very very long questiona very very long questiona very very long questiona very very long questiona very very long questiona very very long questiona very very long questiona very very long questiona very very long questiona very very long questiona very very long questiona very very long questiona very very long questiona very very long questiona very very long question', 0)
 GO
 SET IDENTITY_INSERT [dbo].[Questions] OFF
+GO
+SET IDENTITY_INSERT [dbo].[Students] ON 
+
+GO
+INSERT [dbo].[Students] ([StudentId], [StudentName], [FatherName], [Email], [Address], [MobileNumber], [Department], [Program], [Semester], [SupportingProgram], [BloodGroup], [UserName], [Password]) VALUES (1, N'Ali', N'Ali', N'ali@ali.com', N'home', N'no', 2, N'BE', N'Fifth', N'SELF', N'AB+', N'ali', N'ali')
+GO
+SET IDENTITY_INSERT [dbo].[Students] OFF
 GO
 SET IDENTITY_INSERT [dbo].[Survey] ON 
 
