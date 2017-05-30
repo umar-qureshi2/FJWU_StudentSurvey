@@ -66,6 +66,9 @@
                    <div style="<%=Session["isadmin"].ToString()  %>">
                         <ul class="x-navigation">
                             <li class="active">
+                                <a href="<%= Page.ResolveUrl("~/SurveyResults.aspx") %>"><span class="fa fa-desktop"></span><span class="xn-text">Survey Responses</span></a>
+                            </li>
+                            <li class="active">
                                 <a href="<%= Page.ResolveUrl("~/CRUD/CoursesAdmin.aspx") %>"><span class="fa fa-desktop"></span><span class="xn-text">Courses</span></a>
                             </li>
                             <li class="active">

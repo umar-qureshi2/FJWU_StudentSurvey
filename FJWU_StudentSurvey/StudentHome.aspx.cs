@@ -1,4 +1,5 @@
-﻿using FJWU_StudentSurvey.UserControls;
+﻿using FJWU_StudentSurvey.AppCode;
+using FJWU_StudentSurvey.UserControls;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,6 +14,7 @@ namespace FJWU_StudentSurvey
         FJWUSurveyDBDataContext db = new FJWUSurveyDBDataContext();
         protected void Page_Load(object sender, EventArgs e)
         {
+            warningtext.Text = "";
             //SurveyName.Text = "";
             if (IsPostBack)
             {
@@ -46,7 +48,9 @@ namespace FJWU_StudentSurvey
 
         protected override void OnSaveStateComplete(EventArgs e)
         {
-            var allControls = QuestionsPanel.Controls;
+            try 
+	{	        
+		var allControls = QuestionsPanel.Controls;
             foreach (var usercontrol in allControls)
             {
                 if (usercontrol is QuestionControl)
@@ -60,14 +64,20 @@ namespace FJWU_StudentSurvey
                         SurveyAnswer answerResponse = new SurveyAnswer()
                         {
                             SurveyQuestion = surveyQuestionId,
-                            Student = 1,
+                            Student = globals.LoggedIn.UserMapping ?? 0,
                             Answer = questionControl.AnswerOptions.SelectedValue
                         };
                         db.SurveyAnswers.InsertOnSubmit(answerResponse);
                         db.SubmitChanges();
+                       // warningtext.Text = "Answer Saved Successfully!";
                     }
                 }
             }
+	}
+	catch (Exception)
+	{
+		warningtext.Text = "Error in saving survey, admin cannot submit survey answers";
+	}
 
         }
 
@@ -87,7 +97,7 @@ namespace FJWU_StudentSurvey
         {
             //ShowSurvey();
         }
-
+        SessionGlobals globals = new SessionGlobals();
         private void ShowSurvey()
         {
             int? selectedSurvey = int.Parse(SurveyDropDown.SelectedValue);;
@@ -99,13 +109,15 @@ namespace FJWU_StudentSurvey
             if (selectedSurvey != null)
             {
                 var surveyId = selectedSurvey.Value;
+                bool isquestionPending = false;
                 var allQuestions = db.SurveyQuestions.Where(x => x.Survey == surveyId);
                 foreach (var surveyQuestion in allQuestions)
                 {
-                    if (db.SurveyAnswers.Count(x => x.Student == 1 && x.SurveyQuestion == surveyQuestion.SurveyQuestion1) > 0)
+                    if (db.SurveyAnswers.Count(x => x.Student == (globals.LoggedIn.UserMapping ?? 0) && x.SurveyQuestion == surveyQuestion.SurveyQuestion1) > 0)
                     {
                         continue;
                     }
+                    isquestionPending = true;
                     var question = LoadControl("~/UserControls/QuestionControl.ascx") as QuestionControl;
                     question.UpdateQuestion((surveyQuestion.Question1.QuestionType == 0 ? 
                         "Course: " : "Teacher: " )+surveyQuestion.Question1.QuestionText,
@@ -113,6 +125,10 @@ namespace FJWU_StudentSurvey
                         $"{surveyQuestion.SurveyQuestion1}{surveyQuestion.Question}{surveyQuestion.Survey}");
                     QuestionsPanel.Controls.Add(question);
                 }
+                if (!isquestionPending)
+	{
+		 warningtext.Text = "No questions pending in survey! ";
+	}
             }
         }
 
@@ -120,6 +136,9 @@ namespace FJWU_StudentSurvey
         protected void SubmitSurveyBtn_Click(object sender, EventArgs e)
         {
             saveSignaled = true;
+            warningtext.Text = "Answer Saved Successfully!";
+            Page.ClientScript.RegisterStartupScript(this.GetType(),"open window","alert('Resposes Saved Succesfully');",true);
+           
         }
 
         protected void SurveyDropDown_SelectedIndexChanged(object sender, EventArgs e)
@@ -130,4 +149,4 @@ namespace FJWU_StudentSurvey
             TeachersList.SelectedValue = survey.TeacherId.ToString();
         }
     }
-}
+} 

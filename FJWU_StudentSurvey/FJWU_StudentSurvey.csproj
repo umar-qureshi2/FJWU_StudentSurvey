@@ -834,6 +834,7 @@
     <Content Include="CRUD\SurveyQuestionAdmin.aspx" />
     <Content Include="CRUD\CrudStudents.aspx" />
     <Content Include="Registration.aspx" />
+    <Content Include="SurveyResults.aspx" />
     <Content Include="_Misc\TaskList.txt" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\bootstrap.js" />
@@ -1043,6 +1044,13 @@
     </Compile>
     <Compile Include="Registration.aspx.designer.cs">
       <DependentUpon>Registration.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="SurveyResults.aspx.cs">
+      <DependentUpon>SurveyResults.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SurveyResults.aspx.designer.cs">
+      <DependentUpon>SurveyResults.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

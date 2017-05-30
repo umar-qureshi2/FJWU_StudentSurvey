@@ -5,7 +5,8 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
     <div class="row">
-
+        <strong class="error" style="color: red;">
+                        <asp:Literal ID="warningtext" runat="server"></asp:Literal></strong><br />
         <label class="control-label">Select Survey</label>
         <asp:DropDownList CssClass="btn dropdown-toggle selectpicker btn-default size14" 
             ID="SurveyDropDown" runat="server" DataSourceID="SurveySource" 

@@ -18,6 +18,12 @@ public partial class MasterPage : System.Web.UI.MasterPage
 
     protected void Page_Init(object sender, EventArgs e)
     {
+        #region test code
+        //sg.LoggedIn = new FJWU_StudentSurvey.ApplicationUser()
+        //{UserId = 1,UserMapping = 0 };
+        //sg.IsAdmin = "display:block";
+        #endregion
+
         if (sg.LoggedIn == null)
         {
             Response.Redirect("~/LoginSignup.aspx");
